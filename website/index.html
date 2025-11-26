@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvyn</title>
+    <link rel="icon" href="images/main.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <!-- Header Section Start -->
+    <header>
+        <a href="#" class="logo">
+            <img src="images/main.png" alt="Elvyn Logo">
+        </a>
+        
+    <nav class="navbar">
+        
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Category</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Roll On</a></li>
+                <li><a href="#">Attar</a></li>
+                <li><a href="#">Body Spray</a></li>
+                <li><a href="#">Cologne</a></li>
+                <li><a href="#">Wax</a></li>
+                
+            </ul>
+        </div>
+        <a href="recommended.html">Recommended</a>
+        <a href="/signup.html">Sign Up</a>
+        <a href="signin.html">Sign In</a>
+        
+    </nav>
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="checkout.html" class="fas fa-shopping-cart"></a>
+    </div>
+
+    
+    </header>
+
+    <!-- Header Section End -->
+    <!-- search form -->
+
+    <form action="" id="search-form">
+        <input type="search" placeholder="Search Here...." name="" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+        <i class="fas fa-times" id="close"></i>
+    </form>
+
+    <!-- home section start -->
+
+    <section class="home" id="home">
+
+        <div class="swiper mySwiper home-slider">
+            <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Enjoy Discounts</span>
+                        <h3>Subscribe Now!!!</h3>
+                        <p>Subscribe to our packages for amazing offers and discounts!!</p>
+                        <a href="#" class="btn">Subscribe</a>
+                    </div>
+                    <div class="image">
+                        <img src="images/discount.png" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Why choose us?</span>
+                        <h3>Best Quality</h3>
+                        <p>Our deliveries are fast. We can provide the purest quality to you.</p>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="images/delivery.png" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>We offer Original Products</span>
+                        <h3>Cologne</h3>
+                        <p>Our quality assurance team takes great care of Quality and Service. Ensuring 
+                            amazing customer support.
+                        </p>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="images/home3.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- home section end -->
+
+</section>
+
+<!-- Order Section Start -->
+<section id="order-section">
+    <h2>Order a Fragrance now!!!</h2>
+    <form id="order-form">
+      <label for="zip-code" class="location-label">Enter your City:</label>
+      <input type="text" id="zip-code" name="zip_code" placeholder="Enter city name" required>
+  
+      <label for="cuisine" class="location-label">Select Products:</label>
+      <select id="cuisine" name="cuisine" required>
+        <option value="" disabled selected>Select Perfume</option>
+        <option value="indian">Roll On</option>
+        <option value="chinese">Attar</option>
+        <option value="italian">Body Spray</option>
+        <option value="thai">Cologne</option>
+        <option value="mexican">Wax</option>
+      </select>
+  
+      <button type="submit" class="btn">Order Perfume</button>
+    </form>
+</section>
+
+<!-- Featured restaurant -->
+<section id="featured-restaurants">
+    <h2>Featured Perfumes</h2>
+    <div class="restaurant-container">
+        <div class="restaurant">
+            <img src="images/featured1.png" alt="Restaurant 1">
+            <h3>Mystery</h3>
+            
+            <a href="recommended.html" class="btn" target="_blank">Order Now</a>
+        </div>
+        <div class="restaurant">
+            <img src="images/featured2.png" alt="Restaurant 2">
+            <h3>Blood Temptation</h3>
+            <a href="recommended.html" class="btn" target="_blank">Order Now</a>
+        </div>
+        <div class="restaurant">
+            <img src="images/featured3.png" alt="Restaurant 3">
+            <h3> Attar </h3>
+            <a href="recommended.html" class="btn" target="_blank">Order Now</a>
+        </div>
+    </div>
+</section>
+
+  
+  <!-- ending part -->
+  <footer class="footer">
+    <div class="footer-section">
+        <h3>Top Brands</h3>
+        <ul>
+            <li><a href="#">Indian</a></li>
+            <li><a href="#">Bangladeshi</a></li>
+            <li><a href="#">Chinese</a></li>
+            <li><a href="#">Thai</a></li>
+            <li><a href="#">American</a></li>
+            <li><a href="#">Italian</a></li>
+            <li><a href="#">View all Countries</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Serving Areas</h3>
+        <ul>
+            <li><a href="#">London</a></li>
+            <li><a href="#">Newcastle</a></li>
+            <li><a href="#">Rochester</a></li>
+            <li><a href="#">Watford</a></li>
+            <li><a href="#">Liverpool</a></li>
+            <li><a href="#">Oxford</a></li>
+            <li><a href="#">View all locations</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Restaurant sign up</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">How do we use cookies?</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+    </div>
+    <div class="footer-section">
+        <h3>Service Rating</h3>
+        <div class="rating">
+            
+            <p>TrustScore 4.1 | 7,745 reviews</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Custom JS File Link -->
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="app.js"></script>
+
+
+    
+</body>
+</html>

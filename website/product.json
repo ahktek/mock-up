@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "name": "Noir Wild",
+        "price": 520,
+        "image": "images/dish1.png"
+    },
+    {
+        "id": 2,
+        "name": "Mystery",
+        "price": 220,
+        "image": "images/dish2.png"
+    },
+    {
+        "id": 3,
+        "name": "Blood temptation",
+        "price": 250,
+        "image": "images/dish3.png"
+    }
+    ,
+    {
+        "id": 4,
+        "name": "Floral Blush",
+        "price": 420,
+        "image": "images/dish4.png"
+    },
+    {
+        "id": 5,
+        "name": "Blood Rose",
+        "price": 120,
+        "image": "images/dish5.png"
+    },
+    {
+        "id": 6,
+        "name": "Blue Lagoon",
+        "price": 120,
+        "image": "images/dish6.png"
+    }
+]

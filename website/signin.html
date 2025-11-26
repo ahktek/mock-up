@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="icon" href="images/main.png" type="image/png">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">
+            <img src="images/main.png" alt="Khabar Online Logo">
+        </a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            
+            <a href="signup.html">Sign Up</a>
+            <a href="#signin" class="active">Sign In</a>
+            
+        </nav>
+        <div class="icons">
+            <i class="fas fa-bars" id="menu-bars"></i>
+            <a href="#" class="fas fa-shopping-cart"></a>
+        </div>
+    </header>
+
+    <!-- Sign In Section -->
+    <section class="signin-section">
+        <div class="signin-container">
+            <h1>Sign In to Your Account</h1>
+            <form id="signin-form">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="btnsignin">Sign In</button>
+                <p>Forgot your password? <a href="#">Click here</a></p>
+            </form>
+            <p>Don't have an account? <a href="#signup">Sign Up</a></p>
+        </div>
+    </section>
+
+    
+    <!-- Custom JS File Link -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
