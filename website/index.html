@@ -6,45 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elvyn</title>
     <link rel="icon" href="images/main.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- 1. Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    
+    <!-- 2. Your CSS -->
     <link rel="stylesheet" href="style.css">
-
-
+    
+    <!-- 3. Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- 4. Swiper JS (MUST come before your script) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- 5. YOUR SINGLE SCRIPT (rename script.js → main.js or keep one file) -->
+    <script src="script.js" defer></script>
+    <!-- DELETE app.js completely -->
 </head>
 <body>
     <!-- Header Section Start -->
-    <header>
-        <a href="#" class="logo">
-            <img src="images/main.png" alt="Elvyn Logo">
+    <!-- TOP ANNOUNCEMENT BAR -->
+<div class="top-bar">
+  <p>FREE SAME-DAY DELIVERY ON ALL ORDERS $99+</p>
+</div>
+
+<!-- UPGRADED PREMIUM HEADER – 100% COMPATIBLE WITH YOUR SCRIPT.JS -->
+<header class="main-header">
+  <div class="nav-container">
+
+    <!-- Logo (keeps your image) -->
+    <a href="#" class="logo">
+      <img src="images/main.png" alt="Elvyn Logo">
+    </a>
+
+    <!-- Desktop Nav – looks like THC Vancouver, but uses your existing dropdown system -->
+    <nav class="navbar desktop-nav">
+      
+      <!-- Replaces your old Category dropdown but keeps exact same classes -->
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle nav-link" aria-haspopup="true" aria-expanded="false">
+          SHOP ALL <i class="fas fa-chevron-down"></i>
         </a>
-        
-    <nav class="navbar">
-        
-        <div class="dropdown">
-            <a href="#" class="dropdown-toggle">Category</a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Roll On</a></li>
-                <li><a href="#">Attar</a></li>
-                <li><a href="#">Body Spray</a></li>
-                <li><a href="#">Cologne</a></li>
-                <li><a href="#">Wax</a></li>
-                
-            </ul>
-        </div>
-        <a href="recommended.html">Recommended</a>
-        <a href="/signup.html">Sign Up</a>
-        <a href="signin.html">Sign In</a>
-        
+        <ul class="dropdown-menu mega-style">
+          <div class="mega-grid">
+            <div>
+              <h4>Flower</h4>
+              <li><a href="#">Indica</a></li>
+              <li><a href="#">Sativa</a></li>
+              <li><a href="#">Hybrid</a></li>
+            </div>
+            <div>
+              <h4>Vapes</h4>
+              <li><a href="#">510 Carts</a></li>
+              <li><a href="#">Live Resin</a></li>
+              <li><a href="#">Disposables</a></li>
+            </div>
+            <div>
+              <h4>Concentrates</h4>
+              <li><a href="#">Shatter</a></li>
+              <li><a href="#">Diamonds</a></li>
+              <li><a href="#">Hash</a></li>
+            </div>
+            <div>
+              <h4>More</h4>
+              <li><a href="#">Edibles</a></li>
+              <li><a href="#">Pre-Rolls</a></li>
+              <li><a href="#">Accessories</a></li>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+      <a href="#" class="nav-link">DEALS</a>
+      <a href="recommended.html" class="nav-link">RECOMMENDED</a>
+      <a href="/signup.html" class="nav-link">SIGN UP</a>
+      <a href="signin.html" class="nav-link">SIGN IN</a>
     </nav>
+
+    <!-- Icons – keeps exact same IDs & classes -->
     <div class="icons">
-        <i class="fas fa-bars" id="menu-bars"></i>
-        <i class="fas fa-search" id="search-icon"></i>
-        <a href="checkout.html" class="fas fa-shopping-cart"></a>
+      <i class="fas fa-search" id="search-icon"></i>
+      <a href="checkout.html" class="fas fa-shopping-cart"></a>
+      <i class="fas fa-bars mobile-menu-toggle" id="menu-bars"></i>
     </div>
 
-    
-    </header>
+  </div>
+
+  <!-- CATEGORY BAR (bottom of header) – pure THC energy -->
+  <div class="category-bar">
+    <a href="#">FLOWER</a>
+    <a href="#">PRE-ROLLS</a>
+    <a href="#">VAPES</a>
+    <a href="#">CONCENTRATES</a>
+    <a href="#">EDIBLES</a>
+    <a href="#">MUSHROOMS</a>
+    <a href="#">ACCESSORIES</a>
+  </div>
+</header>
 
     <!-- Header Section End -->
     <!-- search form -->
@@ -60,47 +118,51 @@
     <section class="home" id="home">
 
         <div class="swiper mySwiper home-slider">
-            <div class="swiper-wrapper wrapper">
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>Enjoy Discounts</span>
-                        <h3>Subscribe Now!!!</h3>
-                        <p>Subscribe to our packages for amazing offers and discounts!!</p>
-                        <a href="#" class="btn">Subscribe</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/discount.png" alt="">
-                    </div>
-                </div>
+  <div class="swiper-wrapper">
 
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>Why choose us?</span>
-                        <h3>Best Quality</h3>
-                        <p>Our deliveries are fast. We can provide the purest quality to you.</p>
-                        <a href="#" class="btn">Order Now</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/delivery.png" alt="">
-                    </div>
-                </div>
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>We offer Original Products</span>
-                        <h3>Cologne</h3>
-                        <p>Our quality assurance team takes great care of Quality and Service. Ensuring 
-                            amazing customer support.
-                        </p>
-                        <a href="#" class="btn">Order Now</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/home3.png" alt="">
-                    </div>
-                </div>
+    <div class="swiper-slide slide">
+      <div class="content" data-swiper-parallax="-600" data-swiper-parallax-opacity="0">
+        <span>Exclusive Launch Offer</span>
+        <h3>Up to 50% Off</h3>
+        <p>Premium THC cartridges · Lab-tested · Same-day delivery in Canada</p>
+        <a href="#products" class="btn">Shop Now</a>
+      </div>
+      <div class="image" data-swiper-parallax="-300">
+        <img src="images/discount.png" alt="THC Cartridge Discount">
+      </div>
+    </div>
 
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
+    <div class="swiper-slide slide">
+      <div class="content" data-swiper-parallax="-600" data-swiper-parallax-opacity="0">
+        <span>Fast & Discreet</span>
+        <h3>Delivery Within Hours</h3>
+        <p>100% anonymous packaging · Track your order live</p>
+        <a href="#delivery" class="btn">Learn More</a>
+      </div>
+      <div class="image" data-swiper-parallax="-300">
+        <img src="images/delivery.png" alt="Fast Cannabis Delivery">
+      </div>
+    </div>
+
+    <div class="swiper-slide slide">
+      <div class="content" data-swiper-parallax="-600" data-swiper-parallax-opacity="0">
+        <span>Lab-Tested Purity</span>
+        <h3>Only The Best Strains</h3>
+        <p>Full-spectrum distillate · No fillers · COAs available</p>
+        <a href="#strains" class="btn">View Strains</a>
+      </div>
+      <div class="image" data-swiper-parallax="-300">
+        <img src="images/home3.png" alt="Premium THC Vape">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div>
+</div>
     </section>
 
     <!-- home section end -->
@@ -210,11 +272,44 @@
     </div>
 </footer>
 
-<!-- Custom JS File Link -->
+<!-- MOBILE DRAWER MENU – PURE LUXURY -->
+<div class="drawer-overlay"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="script.js"></script>
-<script src="app.js"></script>
+<div class="mobile-drawer">
+  <div class="drawer-header">
+    <img src="images/main.png" alt="Elvyn" class="drawer-logo">
+    <i class="fas fa-times drawer-close"></i>
+  </div>
+
+  <nav class="drawer-nav">
+    <a href="#" class="drawer-link">Home</a>
+    
+    <div class="drawer-dropdown">
+      <a href="#" class="drawer-link dropdown-toggle-mobile">
+        Category <i class="fas fa-chevron-down"></i>
+      </a>
+      <div class="drawer-submenu">
+        <a href="#">Roll On</a>
+        <a href="#">Attar</a>
+        <a href="#">Body Spray</a>
+        <a href="#">Cologne</a>
+        <a href="#">Wax</a>
+      </div>
+    </div>
+
+    <a href="recommended.html" class="drawer-link">Recommended</a>
+    <a href="/signup.html" class="drawer-link">Sign Up</a>
+    <a href="signin.html" class="drawer-link">Sign In</a>
+    <a href="checkout.html" class="drawer-link">Cart</a>
+  </nav>
+
+  <div class="drawer-footer">
+    <p>Premium Fragrances · Since 2025</p>
+  </div>
+</div>
+
+
+
 
 
     
