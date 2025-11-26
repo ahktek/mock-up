@@ -51,63 +51,6 @@ section:nth-child(even){
     letter-spacing: .1rem;
 }
 
-header{
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: white;
-    padding: 1rem 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-    box-shadow: var(--box-shadow);
-}
-header .logo{
-    color: var(--black);
-    font-size: 2.5rem;
-    font-weight: bolder;
-
-}
-header .logo i{
-    color: var(--black);
-
-}
-header .navbar a{
-    font-size: 1.7rem;
-    border-radius: .5rem;
-    padding: .5rem 1.5rem;
-    color: var(--light-color);
-}
-header .navbar a.active,
-header .navbar a:hover{
-    color: white;
-    background: var(--pink);
-}
-header .icons i,
-header .icons a{
-    cursor: pointer;
-    margin-left: .5rem;
-    height: 4.5rem;
-    line-height: 4.5rem;
-    width: 4.5rem;
-    text-align: center;
-    font-size: 1.7rem;
-    color:var(--pink);
-    border-radius: 50%;
-    background: #eee;
-
-}
-header .icons i:hover,
-header .icons a:hover{
-    color: white;
-    background: var(--pink);
-    transform: rotate(360deg);
-}
-header .icons #menu-bars{
-    display: none;
-}
-
-
 
 /* media queries */
 @media (max-width:991px){
@@ -121,114 +64,9 @@ header .icons #menu-bars{
         padding:2rem;
     }
 }
-@media (max-width:768px){
 
-    header .icons #menu-bars{
-        display: inline-block;
-    }
-    header .navbar{
-        position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: #fff;
-        border-top: .1rem solid rgba(0,0,0,.2);
-        border-bottom: .1rem solid rgba(0,0,0,.2);
-        padding: 1rem;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    }
-    header .navbar.active{
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    }
-    header .navbar a{
-        display: block;
-        padding: 1.5rem;
-        margin: 1rem; 
-        font-size: 2rem;
-        background: #eee;
-    }
-    #search-form #search-box{
-        width: 90%;
-        margin: 0 1rem;
-    }
-
-
-    /* Recommended section responsive code */
-    .recommended-section .foods {
-        flex-direction: column;
-    }
-
-    .recommended-section .food-item {
-        width: 100%;
-    }
-
-    /* Adjustments for medium screens (tablets, etc.) */
-    .recommended-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .recommended-section .restaurant h1 {
-        font-size: 3rem;
-    }
-
-    .recommended-section .restaurant h1::after {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-
-    .recommended-section .foods {
-        flex-direction: column; /* Stack food items vertically */
-        gap: 1.5rem; /* Adjust gap for smaller screens */
-    }
-
-    .recommended-section .food-item {
-        width: 100%; /* Make food items take full width */
-    }
-
-    .recommended-section .restaurant h2 {
-        font-size: 2.2rem;
-    }
-
-    /* recommended section */
-    @media (max-width: 480px) {
-        /* Adjustments for small screens (mobile) */
-        .recommended-section {
-            padding: 2rem 5%; /* Reduce padding for narrow screens */
-        }
     
-        .recommended-section h1 {
-            font-size: 2rem;
-        }
-    
-        .recommended-section .restaurant h1 {
-            font-size: 2.5rem;
-        }
-    
-        .recommended-section .restaurant h1::after {
-            width: 80%; /* Reduce the width of decorative underline */
-        }
-    
-        .recommended-section .restaurant h2 {
-            font-size: 2rem;
-        }
-    
-        .recommended-section .foods {
-            gap: 1rem; /* Smaller gap for mobile */
-        }
-    
-        .recommended-section .food-item {
-            flex: 1 1 auto; /* Allow food items to shrink naturally */
-        }
-    
-        .recommended-section .food-item img {
-            height: 150px; /* Adjust image size */
-        }
-    
-        .recommended-section .food-item p {
-            font-size: 1.5rem;
-        }
-    }
-    
-   
 
-}
 @media (max-width:991px){
     html{
         font-size: 55%;
@@ -1046,49 +884,65 @@ header .totalQuantity{
     text-decoration: none;
 }
 
-
-/* CART ICON CSS */
+/* ==== UPGRADED CART + ACCOUNT ICONS – PREMIUM THC VIBES ==== */
 .icons {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 26px;                     /* slightly bigger spacing for luxury feel */
 }
 
-.iconCart {
-    position: relative;
+.icons i,
+.icons a {
+    color: #fff !important;
+    font-size: 2.6rem;             /* BIG and bold */
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
-    cursor: pointer;
-    gap: 5px;
+    justify-content: center;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+    backdrop-filter: blur(12px);
+    transition: all 0.35s ease;
+    position: relative;
 }
 
-.iconCart i {
-    font-size: 24px; /* Adjust size to match other icons */
-    color: #333; /* Set icon color */
+.icons i:hover,
+.icons a:hover {
+    background: #bfff00;
+    color: #000 !important;
+    transform: translateY(-5px) scale(1.12);
+    box-shadow: 0 12px 30px rgba(191,255,0,0.45);
 }
 
-.iconCart .totalQuantity {
+/* CART BADGE – now big, red, and screams "BUY ME" */
+.icons .fa-shopping-cart::after {
+    content: attr(data-count);           /* ← will use JS to set data-count="3" */
     position: absolute;
-    top: -5px; /* Position the badge correctly */
-    right: -10px;
-    background-color: red;
+    top: -2px;
+    right: -2px;
+    background: #ff0066;
     color: white;
-    font-size: 12px;
-    width: 16px;
-    height: 16px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-weight: bold;
+    justify-content: center;
+    border: 3px solid #000;
+    padding: 0 6px;
+    box-shadow: 0 4px 15px rgba(255,0,102,0.5);
+    animation: pulse 2s infinite;
 }
 
-.iconCart span {
-    font-size: 12px;
-    margin-left: 5px; /* Space between icon and label */
-    color: #333; /* Text color */
+/* Optional: pulse animation when items are added */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
-
 
 
 /* ====================== CHECKOUT / CART PAGE - FINAL FIXED ====================== */
@@ -1655,13 +1509,36 @@ header .totalQuantity{
 /* PREMIUM THC VANCOUVER HEADER – 100% SAFE UPGRADE */
 .top-bar { background:#000; color:#bfff00; text-align:center; padding:10px; font-weight:bold; font-size:0.9rem; letter-spacing:2px; }
 .main-header { background:#000; position:sticky; top:0; z-index:999; border-bottom:1px solid #111; }
-.nav-container { max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:90px; }
+.nav-container { max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:50px; }
 .navbar.desktop-nav { display:flex; gap:40px; align-items:center; }
 .nav-link { color:white; font-weight:600; text-transform:uppercase; font-size:0.95rem; letter-spacing:1px; transition:0.3s; }
 .nav-link:hover { color:#bfff00; }
-.category-bar { background:#000; padding:14px 0; text-align:center; border-top:1px solid #111; overflow-x:auto; white-space:nowrap; }
-.category-bar a { display:inline-block; padding:0 20px; color:white; font-weight:600; font-size:0.9rem; text-transform:uppercase; transition:0.3s; }
-.category-bar a:hover { color:#bfff00; }
+.category-bar { 
+    background:#000; 
+    padding:14px 0; 
+    text-align:center; 
+    border-top:1px solid #111; 
+    overflow-x:auto; 
+    white-space:nowrap;
+    height: 70px;                    /* ← your desired height */
+    display: flex;                   /* ← magic for perfect centering */
+    align-items: center;             /* ← vertically center the links */
+    justify-content: center;         /* ← horizontally center (optional, remove if you want left-aligned on mobile) */
+    gap: 40px;                       /* ← clean spacing between links instead of fixed padding */
+}
+.category-bar a { 
+    display:inline-block; 
+    color:white; 
+    font-weight:600; 
+    font-size:0.95rem;               /* slightly bigger for premium feel */
+    text-transform:uppercase; 
+    letter-spacing: 1px;
+    transition:0.3s; 
+    padding: 0;                      /* remove old padding – gap does it better now */
+}
+.category-bar a:hover { 
+    color:#bfff00; 
+}
 
 /* Mega menu styling (still uses your .dropdown-menu) */
 .mega-style { 

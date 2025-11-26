@@ -183,3 +183,13 @@ document.addEventListener("DOMContentLoaded", () => {
   heroSlider.el.addEventListener("mouseenter", () => heroSlider.autoplay.stop());
   heroSlider.el.addEventListener("mouseleave", () => heroSlider.autoplay.start());
 });
+// 1. When adding to cart (inside your add-to-cart function)
+const cartIcon = document.querySelector('.fa-shopping-cart');
+if (cartIcon) cartIcon.setAttribute('data-count', currentCount);
+
+// 2. On page load (bottom of script.js)
+document.addEventListener('DOMContentLoaded', () => {
+    const count = localStorage.getItem('cartCount') || '0';
+    const cartIcon = document.querySelector('.fa-shopping-cart');
+    if (cartIcon && count > 0) cartIcon.setAttribute('data-count', count);
+});
