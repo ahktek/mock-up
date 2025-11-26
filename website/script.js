@@ -84,47 +84,77 @@ setupMobileMenu() {
   }
 
   // ==================== LUXURY DROPDOWN MENUS (HOVER + CLICK + ANIMATED) ====================
+// ==================== LUXURY DROPDOWN MENUS (HOVER + CLICK + ANIMATED) ====================
   setupDropdownMenus() {
     document.querySelectorAll(".dropdown").forEach(dropdown => {
       const toggle = dropdown.querySelector(".dropdown-toggle");
       const menu   = dropdown.querySelector(".dropdown-menu");
       if (!toggle || !menu) return;
 
-      // ARIA
+      // 1. Timer Variable
+      let hideTimeout = null;
+
+      // ARIA Setup
       toggle.setAttribute("role", "button");
       toggle.setAttribute("aria-haspopup", "true");
       toggle.setAttribute("aria-expanded", "false");
 
+      // --- ACTION: OPEN (Cancels any closing) ---
       const openMenu = () => {
+        if (hideTimeout) clearTimeout(hideTimeout); // Stop the close timer!
+
+        // Close all other menus first
         document.querySelectorAll(".dropdown-menu").forEach(m => {
           if (m !== menu) m.classList.remove("show");
         });
+        document.querySelectorAll(".dropdown-toggle").forEach(t => {
+          if (t !== toggle) t.setAttribute("aria-expanded", "false");
+        });
+
+        // Open this one
         menu.classList.add("show");
-        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-expanded", "true"); // THIS ROTATES THE ARROW DOWN
       };
 
-      const closeMenu = () => {
+      // --- ACTION: CLOSE IMMEDIATE (For Clicks) ---
+      const closeMenuImmediate = () => {
+        if (hideTimeout) clearTimeout(hideTimeout);
         menu.classList.remove("show");
-        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-expanded", "false"); // THIS ROTATES THE ARROW UP
       };
 
-      // Click
+      // --- ACTION: CLOSE DELAYED (For Hover) ---
+      const closeMenuDelayed = () => {
+        hideTimeout = setTimeout(() => {
+          closeMenuImmediate();
+        }, 300); // <--- 300ms "Grace Period"
+      };
+
+      // --- EVENT LISTENERS ---
+
+      // 1. CLICK: Always Instant (No lag)
       toggle.addEventListener("click", e => {
         e.preventDefault();
         e.stopPropagation();
-        menu.classList.contains("show") ? closeMenu() : openMenu();
+        // If open, close instantly. If closed, open instantly.
+        menu.classList.contains("show") ? closeMenuImmediate() : openMenu();
       });
 
-      // Hover (desktop)
+      // 2. HOVER: Use the Delay
       dropdown.addEventListener("mouseenter", openMenu);
-      dropdown.addEventListener("mouseleave", closeMenu);
+      dropdown.addEventListener("mouseleave", closeMenuDelayed); // Wait before closing
 
-      // Keyboard
+      // 3. MENU HOVER: Keep it open if mouse is inside the menu
+      menu.addEventListener("mouseenter", () => {
+         if (hideTimeout) clearTimeout(hideTimeout);
+      });
+
+      // 4. KEYBOARD
       toggle.addEventListener("keydown", e => {
         if (["Enter", " ", "ArrowDown"].includes(e.key)) {
           e.preventDefault();
           if (e.key === "ArrowDown") openMenu();
-          else toggle.click();
+          else toggle.click(); // Triggers the click listener above
         }
       });
     });
@@ -182,14 +212,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   heroSlider.el.addEventListener("mouseenter", () => heroSlider.autoplay.stop());
   heroSlider.el.addEventListener("mouseleave", () => heroSlider.autoplay.start());
-});
-// 1. When adding to cart (inside your add-to-cart function)
-const cartIcon = document.querySelector('.fa-shopping-cart');
-if (cartIcon) cartIcon.setAttribute('data-count', currentCount);
-
-// 2. On page load (bottom of script.js)
-document.addEventListener('DOMContentLoaded', () => {
-    const count = localStorage.getItem('cartCount') || '0';
-    const cartIcon = document.querySelector('.fa-shopping-cart');
-    if (cartIcon && count > 0) cartIcon.setAttribute('data-count', count);
 });

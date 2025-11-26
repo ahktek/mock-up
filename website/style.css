@@ -9,12 +9,14 @@
 }
 
 :root{
-    --green:#27ae60;
-    --black:#192a56;
-    --purple:#592693;
-    --light-color:#666;
-    --pink:#ff007f;
-    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    /* Changed to match your new Luxury Theme */
+    --green: #27ae60;
+    --black: #000; 
+    --purple: #333; /* Dark grey for hover states */
+    --light-color: #666;
+    --pink: #bfff00; /* Replaced Pink with your Neon Green */
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --text-on-neon: #000; /* Text color when background is neon */
 }
 
 html{
@@ -40,7 +42,7 @@ section:nth-child(even){
     margin-top: 1rem;
     display: inline-block;
     font-size: 1.7rem;
-    color: white;
+    color: var(--text-on-neon);
     background: var(--pink);
     border-radius: .5rem;
     cursor: pointer;
@@ -52,26 +54,23 @@ section:nth-child(even){
 }
 
 
-/* media queries */
+/* Corrected Media Queries */
 @media (max-width:991px){
     html{
         font-size: 55%;
-        }
+    }
     header{
         padding: 1rem 2rem;
     }
     section{
         padding:2rem;
     }
+    .navbar.desktop-nav {
+        display: none; /* Hides desktop menu on tablet/mobile */
+    }
 }
 
-    
 
-@media (max-width:991px){
-    html{
-        font-size: 55%;
-        }
-    }
 #search-form{
     position: fixed;
     top: -110%; left: 0;
@@ -548,6 +547,14 @@ section:nth-child(even){
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  display: block;
+}
+/* ACTIVE STATE (Shown by JS) */
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0px); /* Slide up into place */
+    pointer-events: auto;
 }
 
 .dropdown-menu::before {
@@ -891,42 +898,50 @@ header .totalQuantity{
     gap: 26px;                     /* slightly bigger spacing for luxury feel */
 }
 
+/* ==== UPGRADED CART + ACCOUNT ICONS – RESIZED ==== */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;                    /* Reduced gap */
+}
+
 .icons i,
 .icons a {
     color: #fff !important;
-    font-size: 2.6rem;             /* BIG and bold */
-    width: 56px;
-    height: 56px;
+    font-size: 2.0rem;            /* Reduced from 2.6rem */
+    width: 45px;                  /* Reduced from 56px */
+    height: 45px;                 /* Reduced from 56px */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.1);
     border-radius: 50%;
     backdrop-filter: blur(12px);
     transition: all 0.35s ease;
     position: relative;
+    text-decoration: none;        /* Ensures no underline on the cart link */
 }
 
 .icons i:hover,
 .icons a:hover {
     background: #bfff00;
     color: #000 !important;
-    transform: translateY(-5px) scale(1.12);
-    box-shadow: 0 12px 30px rgba(191,255,0,0.45);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(191,255,0,0.45);
 }
 
 /* CART BADGE – now big, red, and screams "BUY ME" */
 .icons .fa-shopping-cart::after {
     content: attr(data-count);           /* ← will use JS to set data-count="3" */
     position: absolute;
-    top: -2px;
-    right: -2px;
+    top: -10px;
+    right: -10px;
     background: #ff0066;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
-    min-width: 24px;
-    height: 24px;
+    min-width: 10px;
+    height: 20px;
     border-radius: 50%;
     display: flex;
     align-items: center;
