@@ -1,0 +1,14 @@
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: var(--text-on-neon);
+    background: var(--pink);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem .3rem;
+}
+.btn:hover{
+    background: var(--purple);
+    letter-spacing: .1rem;
+}

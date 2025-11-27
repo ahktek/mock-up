@@ -1,0 +1,367 @@
+/* Optional: tiny hover pop (makes it feel premium) */
+.main-header .logo img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 15px rgba(191, 255, 0, 0.4));
+}
+.main-header .logo img {
+    height: 68px !important;   /* ← CHANGE THIS NUMBER ONLY */
+    width: auto !important;
+    transition: all 0.3s ease;
+}
+.top-bar + .main-header {
+    margin-top: 0 !important;
+}
+
+
+/* PREMIUM THC VANCOUVER HEADER – 100% SAFE UPGRADE */
+.top-bar { background:#000; color:#bfff00; text-align:center; padding:10px; font-weight:bold; font-size:0.9rem; letter-spacing:2px; }
+.main-header { background:#000; position:sticky; top:0; z-index:999; border-bottom:1px solid #111; }
+.nav-container { max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:70px; }
+.navbar.desktop-nav { display:flex; gap:40px; align-items:center; }
+.nav-link { color:white; font-weight:600; text-transform:uppercase; font-size:0.95rem; letter-spacing:1px; transition:0.3s; }
+.nav-link:hover { color:#bfff00; }
+.category-bar { 
+    background:#000; 
+    padding:14px 0; 
+    text-align:center; 
+    border-top:1px solid #111; 
+    overflow-x:auto; 
+    white-space:nowrap;
+    height: 50px;                    /* ← your desired height */
+    display: flex;                   /* ← magic for perfect centering */
+    align-items: center;             /* ← vertically center the links */
+    justify-content: center;         /* ← horizontally center (optional, remove if you want left-aligned on mobile) */
+    gap: 40px;                       /* ← clean spacing between links instead of fixed padding */
+}
+.category-bar a { 
+    display:inline-block; 
+    color:white; 
+    font-weight:600; 
+    font-size:0.95rem;               /* slightly bigger for premium feel */
+    text-transform:uppercase; 
+    letter-spacing: 1px;
+    transition:0.3s; 
+    padding: 0;                      /* remove old padding – gap does it better now */
+}
+.category-bar a:hover { 
+    color:#bfff00; 
+}
+
+/* Mega menu styling (still uses your .dropdown-menu) */
+.mega-style { 
+  min-width: 500px; padding:30px; background:rgba(10,10,10,0.98); backdrop-filter:blur(20px); border:1px solid rgba(191,255,0,0.3); border-radius:20px; left:50%; transform:translateX(-50%); 
+}
+.mega-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+.mega-grid h4 { color:#bfff00; margin-bottom:12px; font-size:1rem; }
+.mega-grid a { color:#ccc; display:block; padding:8px 0; font-size:0.95rem; }
+.mega-grid a:hover { color:#bfff00; padding-left:8px; }
+
+
+/* LUXURY DROPDOWN – BUTTERY SMOOTH (DESKTOP) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  color: #bfff00;
+}
+
+.dropdown-toggle i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+/* Desktop only: rotate arrow when aria-expanded */
+.dropdown-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+/* The desktop dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  min-width: 180px;
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(191, 255, 0, 0.3);
+  border-radius: 16px;
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0px);
+  pointer-events: auto;
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(191, 255, 0, 0.3);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 24px;
+  color: #ddd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(191, 255, 0, 0.15);
+  color: #bfff00;
+  padding-left: 32px;
+}
+
+/* MOBILE DRAWER: SHOP CATEGORIES DROPDOWN – 100% INDEPENDENT */
+.drawer-nav .dropdown-toggle-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.drawer-nav .dropdown-toggle-mobile i {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  margin-left: auto;
+  /* We control rotation with .active class only — desktop JS can't interfere */
+}
+
+.drawer-nav .dropdown-toggle-mobile.active i {
+  transform: rotate(180deg) !important;
+}
+
+.drawer-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.drawer-submenu.active {
+  max-height: 500px;
+  padding: 8px 0;
+}
+
+.drawer-submenu a {
+  padding: 12px 50px !important;
+  font-size: 1.3rem;
+  color: #aaa;
+  display: block;
+}
+
+.drawer-submenu a:hover {
+  color: #bfff00;
+  background: rgba(191, 255, 0, 0.1);
+}
+
+/* ====  CART + ACCOUNT ICONS  ==== */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;                    /* Reduce gap */
+}
+
+.icons i,
+.icons a {
+    color: #fff !important;
+    font-size: 2.0rem;            
+    width: 40px;                  
+    height: 40px;                
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(12px);
+    transition: all 0.35s ease;
+    position: relative;
+    text-decoration: none;        
+}
+
+.icons i:hover,
+.icons a:hover {
+    background: #bfff00;
+    color: #000 !important;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(191,255,0,0.45);
+}
+
+/* CART BADGE – now big, red, and screams "BUY ME" */
+.icons .fa-shopping-cart::after {
+    content: attr(data-count);           /* ← will use JS to set data-count="3" */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff0066;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 10px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #000;
+    padding: 0 6px;
+    box-shadow: 0 4px 15px rgba(255,0,102,0.5);
+    animation: pulse 2s infinite;
+}
+
+/* LUXURY MOBILE DRAWER MENU */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 85%;
+  max-width: 380px;
+  height: 100%;
+  background: linear-gradient(145deg, #0a0a0a, #111);
+  border-right: 1px solid rgba(191, 255, 0, 0.3);
+  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-drawer.active {
+  left: 0;
+}
+
+.drawer-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(191, 255, 0, 0.2);
+}
+
+.drawer-logo {
+  height: 50px;
+  filter: drop-shadow(0 0 10px rgba(191, 255, 0, 0.5));
+}
+
+.drawer-close {
+  font-size: 2rem;
+  color: #bfff00;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.drawer-close:hover {
+  transform: rotate(90deg);
+  color: white;
+}
+
+.drawer-nav {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.drawer-link {
+  display: block;
+  padding: 18px 30px;
+  color: #ddd;
+  font-size: 1.4rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.drawer-link:hover {
+  background: rgba(191, 255, 0, 0.15);
+  color: #bfff00;
+  padding-left: 40px;
+}
+
+/* Mobile dropdown inside drawer */
+.drawer-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-toggle-mobile i {
+  transition: transform 0.3s ease;
+}
+
+.drawer-submenu {
+  background: rgba(0, 0, 0, 0.5);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.drawer-submenu.active {
+  max-height: 400px;
+}
+
+.drawer-submenu a {
+  padding: 14px 50px;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.drawer-submenu a:hover {
+  color: #bfff00;
+  background: rgba(191, 255, 0, 0.1);
+}
+
+.drawer-footer {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  border-top: 1px solid rgba(191, 255, 0, 0.2);
+  font-size: 0.9rem;
+}
