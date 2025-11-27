@@ -83,14 +83,16 @@
       <a href="signin.html" class="nav-link">SIGN IN</a>
     </nav>
 
-    <!-- Icons – keeps exact same IDs & classes -->
-    <div class="icons">
-      <i class="fas fa-search" id="search-icon"></i>
-      <a href="checkout.html" class="fas fa-shopping-cart" data-count="0"></a>
-      <div class="iconCart" >
-    </div>
-      <i class="fas fa-bars mobile-menu-toggle" id="menu-bars"></i>
-    </div>
+    <!-- HAMBURGER MENU – MUST BE FIRST AND OUTSIDE .icons -->
+<i class="fas fa-bars mobile-menu-toggle" id="menu-bars"></i>
+
+
+
+<!-- Icons – now only search + cart, pinned to the right -->
+<div class="icons">
+  <i class="fas fa-search" id="search-icon"></i>
+  <a href="checkout.html" class="fas fa-shopping-cart" data-count="0"></a>
+</div>
 
   </div>
 
@@ -279,23 +281,26 @@
 
 <div class="mobile-drawer">
   <div class="drawer-header">
-    <img src="images/main.png" alt="Elvyn" class="drawer-logo">
+    <img src="images/main.png" alt="BudFast" class="drawer-logo">
     <i class="fas fa-times drawer-close"></i>
   </div>
 
   <nav class="drawer-nav">
     <a href="#" class="drawer-link">Home</a>
     
+    <!-- CLEAN SHOP CATEGORIES DROPDOWN -->
     <div class="drawer-dropdown">
       <a href="#" class="drawer-link dropdown-toggle-mobile">
-        Category <i class="fas fa-chevron-down"></i>
+        Shop Categories <i class="fas fa-chevron-down"></i>
       </a>
       <div class="drawer-submenu">
-        <a href="#">Roll On</a>
-        <a href="#">Attar</a>
-        <a href="#">Body Spray</a>
-        <a href="#">Cologne</a>
-        <a href="#">Wax</a>
+        <a href="#">Flower</a>
+        <a href="#">Pre-Rolls</a>
+        <a href="#">Vapes</a>
+        <a href="#">Concentrates</a>
+        <a href="#">Edibles</a>
+        <a href="#">Mushrooms</a>
+        <a href="#">Accessories</a>
       </div>
     </div>
 
@@ -306,7 +311,7 @@
   </nav>
 
   <div class="drawer-footer">
-    <p>Premium Fragrances · Since 2025</p>
+    <p>BudFast © 2025 · Same-Day Vancouver Delivery</p>
   </div>
 </div>
 

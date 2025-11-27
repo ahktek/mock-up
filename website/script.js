@@ -41,16 +41,28 @@ setupMobileMenu() {
   menuToggle.addEventListener('click', openMenu);
   drawerClose?.addEventListener('click', closeMenu);
   drawerOverlay?.addEventListener('click', closeMenu);
-  drawerLinks.forEach(link => link.addEventListener('click', closeMenu));
+  // Close drawer when clicking normal links — BUT NOT when clicking the category dropdown toggle
+drawerLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    // If the clicked link (or its parent) is the dropdown toggle → DO NOT close drawer
+    if (link.classList.contains('dropdown-toggle-mobile') || 
+        link.closest('.dropdown-toggle-mobile')) {
+      return; // ← do nothing → keeps drawer open
+    }
+    closeMenu();
+  });
+});
 
-  // Mobile dropdown inside drawer
+  // MOBILE DRAWER: Shop Categories Dropdown – FINAL FIXED VERSION
   document.querySelectorAll('.dropdown-toggle-mobile').forEach(toggle => {
-    toggle.addEventListener('click', e => {
+    toggle.addEventListener('click', function(e) {
       e.preventDefault();
-      const submenu = toggle.nextElementSibling;
+      
+      const submenu = this.nextElementSibling;
+      
+      // Toggle active class on both submenu and the toggle button
       submenu.classList.toggle('active');
-      toggle.querySelector('i').style.transform = 
-        submenu.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+      this.classList.toggle('active');  // ← this triggers CSS rotation (no conflict!)
     });
   });
 }
@@ -83,7 +95,7 @@ setupMobileMenu() {
     });
   }
 
-  // ==================== LUXURY DROPDOWN MENUS (HOVER + CLICK + ANIMATED) ====================
+
 // ==================== LUXURY DROPDOWN MENUS (HOVER + CLICK + ANIMATED) ====================
   setupDropdownMenus() {
     document.querySelectorAll(".dropdown").forEach(dropdown => {

@@ -25,9 +25,18 @@ html{
     scroll-padding-top: 5.5rem;
     scroll-behavior: smooth;
 }
-.logo img {
-    width: 50px; /* Adjust this value to set the desired size */
-    height: auto; /* Maintain the aspect ratio */
+.main-header .logo img {
+    height: 68px !important;   /* ← CHANGE THIS NUMBER ONLY */
+    width: auto !important;
+    transition: all 0.3s ease;
+}
+
+
+
+/* Optional: tiny hover pop (makes it feel premium) */
+.main-header .logo img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 15px rgba(191, 255, 0, 0.4));
 }
 
 section{
@@ -54,21 +63,7 @@ section:nth-child(even){
 }
 
 
-/* Corrected Media Queries */
-@media (max-width:991px){
-    html{
-        font-size: 55%;
-    }
-    header{
-        padding: 1rem 2rem;
-    }
-    section{
-        padding:2rem;
-    }
-    .navbar.desktop-nav {
-        display: none; /* Hides desktop menu on tablet/mobile */
-    }
-}
+
 
 
 #search-form{
@@ -118,11 +113,65 @@ section:nth-child(even){
     top: 2rem; right: 3rem;
     font-size: 5rem;
 }
+
+
+.top-bar + .main-header {
+    margin-top: 0 !important;
+}
+/* PREMIUM THC VANCOUVER HEADER – 100% SAFE UPGRADE */
+.top-bar { background:#000; color:#bfff00; text-align:center; padding:10px; font-weight:bold; font-size:0.9rem; letter-spacing:2px; }
+.main-header { background:#000; position:sticky; top:0; z-index:999; border-bottom:1px solid #111; }
+.nav-container { max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:70px; }
+.navbar.desktop-nav { display:flex; gap:40px; align-items:center; }
+.nav-link { color:white; font-weight:600; text-transform:uppercase; font-size:0.95rem; letter-spacing:1px; transition:0.3s; }
+.nav-link:hover { color:#bfff00; }
+.category-bar { 
+    background:#000; 
+    padding:14px 0; 
+    text-align:center; 
+    border-top:1px solid #111; 
+    overflow-x:auto; 
+    white-space:nowrap;
+    height: 50px;                    /* ← your desired height */
+    display: flex;                   /* ← magic for perfect centering */
+    align-items: center;             /* ← vertically center the links */
+    justify-content: center;         /* ← horizontally center (optional, remove if you want left-aligned on mobile) */
+    gap: 40px;                       /* ← clean spacing between links instead of fixed padding */
+}
+.category-bar a { 
+    display:inline-block; 
+    color:white; 
+    font-weight:600; 
+    font-size:0.95rem;               /* slightly bigger for premium feel */
+    text-transform:uppercase; 
+    letter-spacing: 1px;
+    transition:0.3s; 
+    padding: 0;                      /* remove old padding – gap does it better now */
+}
+.category-bar a:hover { 
+    color:#bfff00; 
+}
+
+/* Mega menu styling (still uses your .dropdown-menu) */
+.mega-style { 
+  min-width: 500px; padding:30px; background:rgba(10,10,10,0.98); backdrop-filter:blur(20px); border:1px solid rgba(191,255,0,0.3); border-radius:20px; left:50%; transform:translateX(-50%); 
+}
+.mega-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+.mega-grid h4 { color:#bfff00; margin-bottom:12px; font-size:1rem; }
+.mega-grid a { color:#ccc; display:block; padding:8px 0; font-size:0.95rem; }
+.mega-grid a:hover { color:#bfff00; padding-left:8px; }
+
+
+
+
     
 /* ============================================= */
 /*        LUXURY CANNABIS HERO SLIDER 2025       */
 /* ============================================= */
-
+.home {
+    padding: 0 !important;
+    margin-top: -1px !important;   /* pulls slider flush under header */
+}
 .home-slider {
   position: relative;
   height: 90vh;
@@ -270,37 +319,6 @@ section:nth-child(even){
   box-shadow: 0 0 25px rgba(191,255,0,0.8);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 992px) {
-  .home-slider {
-    height: 80vh;
-    min-height: 500px;
-  }
-  .home-slider .content {
-    padding: 30px 20px;
-    max-width: 90%;
-  }
-  .home-slider .content h3 {
-    font-size: 4rem;
-  }
-  .home-slider .content .btn {
-    padding: 14px 36px;
-  }
-}
-
-@media (max-width: 576px) {
-  .home-slider .content h3 {
-    font-size: 3.2rem;
-  }
-  .home-slider .content span {
-    font-size: 1.3rem;
-  }
-  .home-slider .swiper-button-next,
-  .home-slider .swiper-button-prev {
-    width: 50px;
-    height: 50px;
-  }
-}
 
 /* order section css start */
 #order-section {
@@ -500,7 +518,7 @@ section:nth-child(even){
     color: #333;
 }
 
-/* LUXURY DROPDOWN – BUTTERY SMOOTH */
+/* LUXURY DROPDOWN – BUTTERY SMOOTH (DESKTOP) */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -525,11 +543,12 @@ section:nth-child(even){
   transition: transform 0.3s ease;
 }
 
+/* Desktop only: rotate arrow when aria-expanded */
 .dropdown-toggle[aria-expanded="true"] i {
   transform: rotate(180deg);
 }
 
-/* The menu itself */
+/* The desktop dropdown menu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -549,12 +568,12 @@ section:nth-child(even){
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   display: block;
 }
-/* ACTIVE STATE (Shown by JS) */
+
 .dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0px); /* Slide up into place */
-    pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0px);
+  pointer-events: auto;
 }
 
 .dropdown-menu::before {
@@ -566,10 +585,6 @@ section:nth-child(even){
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid rgba(191, 255, 0, 0.3);
-}
-
-.dropdown-menu li {
-  list-style: none;
 }
 
 .dropdown-menu a {
@@ -587,19 +602,47 @@ section:nth-child(even){
   padding-left: 32px;
 }
 
-/* OPEN STATE – pure silk */
-.dropdown:hover .dropdown-menu,
-.dropdown-toggle[aria-expanded="true"] ~ .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(8px);
+/* MOBILE DRAWER: SHOP CATEGORIES DROPDOWN – 100% INDEPENDENT */
+.drawer-nav .dropdown-toggle-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-/* Hover effect for dropdown items */
-.dropdown-menu li a:hover {
-    background-color: var(--pink); 
-    color: white; 
+.drawer-nav .dropdown-toggle-mobile i {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  margin-left: auto;
+  /* We control rotation with .active class only — desktop JS can't interfere */
+}
+
+.drawer-nav .dropdown-toggle-mobile.active i {
+  transform: rotate(180deg) !important;
+}
+
+.drawer-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.drawer-submenu.active {
+  max-height: 500px;
+  padding: 8px 0;
+}
+
+.drawer-submenu a {
+  padding: 12px 50px !important;
+  font-size: 1.3rem;
+  color: #aaa;
+  display: block;
+}
+
+.drawer-submenu a:hover {
+  color: #bfff00;
+  background: rgba(191, 255, 0, 0.1);
 }
 
 /* Signup Page start */
@@ -891,26 +934,20 @@ header .totalQuantity{
     text-decoration: none;
 }
 
-/* ==== UPGRADED CART + ACCOUNT ICONS – PREMIUM THC VIBES ==== */
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 26px;                     /* slightly bigger spacing for luxury feel */
-}
 
-/* ==== UPGRADED CART + ACCOUNT ICONS – RESIZED ==== */
+/* ====  CART + ACCOUNT ICONS  ==== */
 .icons {
     display: flex;
     align-items: center;
-    gap: 15px;                    /* Reduced gap */
+    gap: 10px;                    /* Reduce gap */
 }
 
 .icons i,
 .icons a {
     color: #fff !important;
-    font-size: 2.0rem;            /* Reduced from 2.6rem */
-    width: 45px;                  /* Reduced from 56px */
-    height: 45px;                 /* Reduced from 56px */
+    font-size: 2.0rem;            
+    width: 40px;                  
+    height: 40px;                
     display: flex;
     align-items: center;
     justify-content: center;
@@ -919,7 +956,7 @@ header .totalQuantity{
     backdrop-filter: blur(12px);
     transition: all 0.35s ease;
     position: relative;
-    text-decoration: none;        /* Ensures no underline on the cart link */
+    text-decoration: none;        
 }
 
 .icons i:hover,
@@ -952,12 +989,7 @@ header .totalQuantity{
     animation: pulse 2s infinite;
 }
 
-/* Optional: pulse animation when items are added */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
+
 
 
 /* ====================== CHECKOUT / CART PAGE - FINAL FIXED ====================== */
@@ -1275,18 +1307,7 @@ header .totalQuantity{
     box-shadow: 0 10px 30px rgba(191, 255, 0, 0.4);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .checkoutLayout {
-        grid-template-columns: 1fr;
-    }
-    .returnCart {
-        order: 2;
-    }
-    .right {
-        order: 1;
-    }
-}
+
 
 /* + / – Buttons + Quantity */
 .quantity-controls {
@@ -1524,7 +1545,7 @@ header .totalQuantity{
 /* PREMIUM THC VANCOUVER HEADER – 100% SAFE UPGRADE */
 .top-bar { background:#000; color:#bfff00; text-align:center; padding:10px; font-weight:bold; font-size:0.9rem; letter-spacing:2px; }
 .main-header { background:#000; position:sticky; top:0; z-index:999; border-bottom:1px solid #111; }
-.nav-container { max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:50px; }
+.nav-container { max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:70px; }
 .navbar.desktop-nav { display:flex; gap:40px; align-items:center; }
 .nav-link { color:white; font-weight:600; text-transform:uppercase; font-size:0.95rem; letter-spacing:1px; transition:0.3s; }
 .nav-link:hover { color:#bfff00; }
@@ -1535,7 +1556,7 @@ header .totalQuantity{
     border-top:1px solid #111; 
     overflow-x:auto; 
     white-space:nowrap;
-    height: 70px;                    /* ← your desired height */
+    height: 50px;                    /* ← your desired height */
     display: flex;                   /* ← magic for perfect centering */
     align-items: center;             /* ← vertically center the links */
     justify-content: center;         /* ← horizontally center (optional, remove if you want left-aligned on mobile) */
@@ -1557,14 +1578,144 @@ header .totalQuantity{
 
 /* Mega menu styling (still uses your .dropdown-menu) */
 .mega-style { 
-  min-width: 700px; padding:30px; background:rgba(10,10,10,0.98); backdrop-filter:blur(20px); border:1px solid rgba(191,255,0,0.3); border-radius:20px; left:50%; transform:translateX(-50%); 
+  min-width: 500px; padding:30px; background:rgba(10,10,10,0.98); backdrop-filter:blur(20px); border:1px solid rgba(191,255,0,0.3); border-radius:20px; left:50%; transform:translateX(-50%); 
 }
 .mega-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
 .mega-grid h4 { color:#bfff00; margin-bottom:12px; font-size:1rem; }
 .mega-grid a { color:#ccc; display:block; padding:8px 0; font-size:0.95rem; }
 .mega-grid a:hover { color:#bfff00; padding-left:8px; }
 
-/* Mobile – hide desktop nav */
-@media (max-width:992px) {
-  .navbar.desktop-nav { display:none; }
+/* ===== FINAL MOBILE HEADER – NO SHIFTING, NO CONFLICTS ===== */
+@media (max-width: 992px) {
+  .home {
+        padding: 0;
+        margin-top: 0;
+    }
+  .nav-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;     /* Center the logo */
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  /* 1. HAMBURGER – Fixed left */
+  .mobile-menu-toggle {
+    position: absolute;
+    left: 20px;
+    font-size: 2.6rem;
+    color: #bfff00;
+    cursor: pointer;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  /* 2. LOGO – Perfectly centered */
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+
+  .logo img {
+    height: 56px !important;
+  }
+
+  /* 3. SEARCH + CART – Fixed flush right */
+  .icons {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .icons i,
+  .icons a {
+    font-size: 2.2rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(12px);
+  }
+
+  /* Hide desktop stuff */
+  .navbar.desktop-nav,
+  .category-bar {
+    display: none !important;
+  }
+}
+
+/* HERO SLIDER – MOBILE: COMPACT & FAST (NO MORE GIANT SLIDER) */
+@media (max-width: 992px) {
+  .home-slider {
+    height: 70vh !important;        /* Much shorter */
+    min-height: 380px !important;   /* Prevents it from being too tall on small phones */
+    margin-top: 0 !important;
+  }
+
+  .home-slider .slide .content {
+    padding: 30px 20px !important;
+    max-width: 90% !important;
+    border-radius: 20px;
+  }
+
+  .home-slider .content span {
+    font-size: 1.4rem !important;
+    letter-spacing: 3px;
+  }
+
+  .home-slider .content h3 {
+    font-size: 4.2rem !important;
+    line-height: 1.1;
+  }
+
+  .home-slider .content p {
+    font-size: 1.5rem !important;
+    line-height: 1.6;
+    margin: 16px 0;
+  }
+
+  .home-slider .content .btn {
+    padding: 14px 36px !important;
+    font-size: 1.4rem !important;
+  }
+
+  /* Smaller arrows on mobile */
+  .home-slider .swiper-button-next,
+  .home-slider .swiper-button-prev {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .home-slider .swiper-button-next:after,
+  .home-slider .swiper-button-prev:after {
+    font-size: 20px !important;
+  }
+
+  /* Hide pagination on mobile if you want even cleaner */
+  /* .home-slider .swiper-pagination { display: none; } */
+}
+@media (max-width: 480px) {
+  .home-slider {
+    height: 65vh !important;
+    min-height: 420px !important;
+  }
+
+  .home-slider .content h3 {
+    font-size: 3.6rem !important;
+  }
+
+  .home-slider .content p {
+    font-size: 1.4rem !important;
+  }
 }
