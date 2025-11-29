@@ -88,10 +88,14 @@
 
 
 
-<!-- Icons – now only search + cart, pinned to the right -->
 <div class="icons">
   <i class="fas fa-search" id="search-icon"></i>
-  <i class="fas fa-shopping-cart iconCart" data-count="0"></i>
+
+  <!-- WRAP ICON + PRICE IN ONE DIV -->
+  <div class="cart-wrapper">
+    <i class="fas fa-shopping-cart iconCart" data-count="0"></i>
+    <span class="cart-total-price">$0.00</span>
+  </div>
 </div>
 
   </div>
@@ -146,7 +150,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="total-bar">Total: $0.00</div>
         <div class="buttons">
             <div class="close">CLOSE</div>
             <div class="checkout">

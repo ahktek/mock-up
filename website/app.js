@@ -4,30 +4,68 @@
 
 let listCart = [];
 let products = [];
+let isCartOpen = false; // <--- ADD THIS
 
 // =============================================
-// 1. PAGE LOAD & INITIALIZATION
+// 1. PAGE LOAD & INITIALIZATION (FIXED: NO SLIDING BACKGROUND)
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Cart icon toggle (slide-in cart)
+    // Selectors
     const iconCart = document.querySelector('.iconCart');
     const cartDrawer = document.querySelector('.cart');
     const container = document.querySelector('.container');
     const closeBtn = document.querySelector('.cart .close');
 
-    if (iconCart && cartDrawer && container) {
-        iconCart.addEventListener('click', () => {
-            cartDrawer.style.right = cartDrawer.style.right === '0px' ? '-100%' : '0';
-            container.style.transform = cartDrawer.style.right === '0px' ? 'translateX(-420px)' : 'translateX(0)';
-        });
-    }
-    if (closeBtn && cartDrawer && container) {
-        closeBtn.addEventListener('click', () => {
+    // Centralized Toggle Helper
+    const updateCartState = () => {
+        if (!cartDrawer) return; // We don't need to check for container anymore
+
+        if (isCartOpen) {
+            // OPEN STATE: Just show the cart, don't move the container
+            cartDrawer.style.right = '0';
+            // REMOVED: container.style.transform = 'translateX(-420px)'; 
+        } else {
+            // CLOSED STATE
             cartDrawer.style.right = '-100%';
-            container.style.transform = 'translateX(0)';
+            // REMOVED: container.style.transform = 'translateX(0)';
+        }
+    };
+
+    // 1. Toggle Button
+    if (iconCart) {
+        iconCart.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isCartOpen = !isCartOpen;
+            updateCartState();
         });
     }
 
+    // 2. Close Button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            isCartOpen = false;
+            updateCartState();
+        });
+    }
+
+    // 3. Click Outside to Close
+    document.addEventListener('click', (e) => {
+        if (isCartOpen && cartDrawer) {
+            if (!cartDrawer.contains(e.target) && !iconCart.contains(e.target)) {
+                isCartOpen = false;
+                updateCartState();
+            }
+        }
+    });
+
+    // 4. Prevent clicks inside cart from closing
+    if (cartDrawer) {
+        cartDrawer.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Init Data
     loadProducts();
     loadCartFromCookie();
 });
@@ -164,18 +202,43 @@ function renderEverywhere() {
             `).join('');
     }
 
-    // 3. Update all quantity badges
-    document.querySelectorAll('.totalQuantity, .fa-shopping-cart').forEach(el => {
-        if (totalQty > 0) {
-            el.textContent = totalQty;
-            if (el.hasAttribute('data-count')) el.setAttribute('data-count', totalQty);
-        } else {
-            el.textContent = '0';
-            if (el.hasAttribute('data-count')) el.removeAttribute('data-count');
-        }
-    });
+    // 3. Update quantity badges — FIXED
+const totalQtyEls = document.querySelectorAll('.totalQuantity');
+const navbarIcon = document.querySelector('.fa-shopping-cart');
 
-    // 4. Update checkout total price
-    const totalPriceEl = document.querySelector('.totalPrice');
-    if (totalPriceEl) totalPriceEl.textContent = '$' + totalPrice.toFixed(2);
+totalQtyEls.forEach(el => {
+    el.textContent = totalQty > 0 ? totalQty : '0';
+});
+
+if (navbarIcon) {
+    if (totalQty > 0) {
+        navbarIcon.setAttribute('data-count', totalQty);
+    } else {
+        navbarIcon.removeAttribute('data-count');
+    }
+}
+
+    // 4. Update ALL total price displays
+const totalPriceFormatted = '$' + totalPrice.toFixed(2);
+
+// Checkout page total
+const checkoutTotal = document.querySelector('.totalPrice');
+if (checkoutTotal) checkoutTotal.textContent = totalPriceFormatted;
+
+// NEW: Navbar total price under cart icon
+const navbarTotal = document.querySelector('.cart-total-price');
+if (navbarTotal) {
+    navbarTotal.textContent = totalPriceFormatted;
+    if (totalQty > 0) {
+        navbarTotal.classList.add('show');
+    } else {
+        navbarTotal.classList.remove('show');
+    }
+}
+
+// --- NEW: UPDATE SLIDING CART TOTAL ---
+    const slideInTotal = document.querySelector('.cart .total-bar');
+    if (slideInTotal) {
+        slideInTotal.innerText = 'Total: ' + totalPriceFormatted;
+    }
 }

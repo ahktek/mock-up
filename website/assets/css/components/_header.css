@@ -365,3 +365,53 @@
   border-top: 1px solid rgba(191, 255, 0, 0.2);
   font-size: 0.9rem;
 }
+
+/* ================= CART TOTAL PRICE (FIXED) ================= */
+
+/* 1. The Wrapper: Flips the price to the LEFT of the icon */
+.cart-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    /* This magically puts the price before the icon without changing HTML */
+    flex-direction: row-reverse; 
+}
+
+.cart-total-price {
+    /* 2. Adjust margins for the new Left position */
+    margin-left: 0;       
+    margin-right: 12px;   /* Push it away from the icon */
+    
+    /* Luxury Styling */
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #bfff00;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    padding: 7px 14px;
+    border-radius: 30px;
+    white-space: nowrap;
+    
+    /* Animation State */
+    opacity: 0;
+    transform: translateX(10px); /* Slide in from right to left */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Borders & Glow */
+    box-shadow: 0 4px 20px rgba(191,255,0,0.4);
+    border: 1px solid rgba(191,255,0,0.3);
+    letter-spacing: 0.8px;
+}
+
+/* Active State */
+.cart-total-price.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 3. MOBILE: Hide the price because there is no room on phones */
+@media (max-width: 992px) {
+    .cart-total-price {
+        display: none !important;
+    }
+}
