@@ -133,3 +133,23 @@
     font-size: 1.4rem !important;
   }
 }
+@media (max-width: 480px) {
+    .cart {
+        width: 100vw;
+        max-width: 100vw;
+    }
+    .cart .listCart .item {
+        grid-template-columns: 70px 1fr 140px;   /* gives quantity more breathing room */
+        gap: 12px;
+        padding: 14px;
+    }
+    .cart .listCart .quantity {
+        padding: 10px 16px;
+        gap: 14px;
+    }
+    .cart .listCart .quantity button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+}

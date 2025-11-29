@@ -60,7 +60,7 @@
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    
 }
 
 .checkoutLayout {
@@ -143,41 +143,7 @@
     font-size: 1.2rem;
 }
 
-.returnCart .list .item .quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #111;
-    padding: 8px 16px;
-    border-radius: 50px;
-    border: 1px solid #444;
-}
 
-.returnCart .list .item .qty-btn {
-    width: 20px;
-    height: 20px;
-    background: #bfff00;
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.returnCart .list .item .qty-btn:hover {
-    background: #e0ff4f;
-    transform: scale(1.1);
-}
-
-.returnCart .list .item .quantity {
-    color: #fff;
-    font-weight: bold;
-    min-width: 30px;
-    text-align: center;
-    font-size: 1.3rem;
-}
 
 .returnCart .list .item .returnPrice {
     color: #bfff00;
@@ -315,50 +281,38 @@
 
 
 
-/* + / – Buttons + Quantity */
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-    background: #f1f1f1;
-    padding: 6px 10px;
-    border-radius: 30px;
-    border: 2px solid #ddd;
-}
 
-.qty-btn {
-    width: 25px;
-    height: 25px;
-    background: var(--pink);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.6rem;
-    font-weight: bold;
-    cursor: pointer;
+/* FINAL FIX: GLOWING LIME + / − BUTTONS ON CHECKOUT PAGE */
+.returnCart .list .item .quantity {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
-    flex-shrink: 0;
+    gap: 14px;
+    background: rgba(15, 15, 15, 0.9);
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 2px solid rgba(191, 255, 0, 0.4);
+    backdrop-filter: blur(10px);
 }
 
-.qty-btn:hover {
-    background: var(--purple);
-    transform: scale(1.1);
-}
-
-.qty-btn:active {
-    transform: scale(0.95);
-}
-
-.quantity-controls .quantity {
-    min-width: 32px;
-    text-align: center;
+.returnCart .list .item .quantity button {
+    width: 46px;
+    height: 46px;
+    background: linear-gradient(135deg, #bfff00, #80ff00);
+    color: #000;
+    border: none;
+    border-radius: 50%;
     font-weight: bold;
-    font-size: 1.5rem;
-    color: var(--black);
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 6px 25px rgba(191, 255, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.returnCart .list .item .quantity button:hover {
+    transform: scale(1.25);
+    background: #e0ff4f;
+    box-shadow: 0 12px 40px rgba(191, 255, 0, 0.7);
 }
 
 
