@@ -1,4 +1,8 @@
-/* ——— HIGH-FRIENDLY PRODUCT GRID ——— */
+/* ============================================= */
+/* LUXURY PRODUCT GRID & CART SYSTEM            */
+/* ============================================= */
+
+/* ——— CONTAINER LAYOUT ——— */
 .container {
     max-width: 1400px;
     margin: 4rem auto;
@@ -12,21 +16,28 @@
     padding: 20px 0;
 }
 
+/* ——— PRODUCT CARD (GLASS & CHARCOAL) ——— */
 .listProduct .item {
     position: relative;
-    background: rgba(15, 15, 15, 0.7);
+    /* Dark glass effect */
+    background: var(--bg-card);
     border-radius: 24px;
     overflow: hidden;
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(191, 255, 0, 0.15);
+    
+    /* Subtle tobacco border instead of neon green */
+    border: 1px solid var(--border-color);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease;
 }
 
 .listProduct .item:hover {
-    transform: translateY(-20px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(191, 255, 0, 0.25);
-    border-color: #bfff00;
+    transform: translateY(-10px) scale(1.01); /* Reduced movement slightly for elegance */
+    
+    /* Warm Tobacco Glow */
+    box-shadow: 0 30px 60px rgba(143, 105, 76, 0.15);
+    border-color: var(--color-tobacco);
 }
 
 .listProduct .item img {
@@ -37,26 +48,28 @@
 }
 
 .listProduct .item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .listProduct .item h2 {
     padding: 20px 24px 8px;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     margin: 0;
+    font-family: 'Clash Display', sans-serif; /* Optional if you have it */
 }
 
 .listProduct .item .price {
     padding: 0 24px 20px;
     font-size: 2rem;
     font-weight: bold;
-    color: #bfff00;
-    text-shadow: 0 0 20px rgba(191, 255, 0, 0.4);
+    color: var(--color-tobacco);
+    /* Subtle warm glow, not neon */
+    text-shadow: 0 0 20px rgba(143, 105, 76, 0.3);
 }
 
-/* ——— SEXY ADD-TO-CART BUTTON (bottom-right) ——— */
+/* ——— ADD TO CART BUTTON (FLOATING) ——— */
 .listProduct .item button {
     position: absolute;
     bottom: 20px;
@@ -64,19 +77,25 @@
     min-width: 140px;
     height: 48px;
     padding: 0 20px;
-    background: linear-gradient(135deg, #bfff00, #80ff00);
-    color: #000;
-    font-weight: bold;
+    
+    /* Gradient: Tobacco to Rich Brown */
+    background: linear-gradient(135deg, var(--color-tobacco), var(--color-tobacco-rich));
+    color: white; /* White text looks better on brown than black does */
+    
+    font-weight: 600;
     font-size: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     border: none;
     border-radius: 50px;
     cursor: pointer;
+    
     opacity: 0;
     transform: translateY(20px) scale(0.9);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 25px rgba(191, 255, 0, 0.4);
+    
+    /* Warm shadow */
+    box-shadow: 0 8px 25px rgba(143, 105, 76, 0.3);
     z-index: 2;
     display: flex;
     align-items: center;
@@ -86,8 +105,8 @@
 
 .listProduct .item button::after {
     content: '+';
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .listProduct .item:hover button {
@@ -95,15 +114,16 @@
     transform: translateY(0) scale(1);
     bottom: 24px;
     right: 24px;
-    box-shadow: 0 15px 35px rgba(191, 255, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(143, 105, 76, 0.4);
 }
 
 .listProduct .item button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 20px 40px rgba(191, 255, 0, 0.6);
+    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--color-tobacco-rich), var(--color-tobacco));
+    color: var(--color-sand); /* Text turns to Gold/Sand on hover */
 }
 
-/* ——— SLIDING CART (SMOOTH & MODERN) ——— */
+/* ——— SLIDING CART DRAWER ——— */
 .cart {
     position: fixed;
     top: 0;
@@ -111,14 +131,19 @@
     width: 420px;
     max-width: 90vw;
     height: 100vh;
-    background: linear-gradient(145deg, #0a0a0a, #111);
-    color: #fff;
-    box-shadow: -20px 0 80px rgba(0, 0, 0, 0.9);
+    
+    /* Deep Luxury Gradient */
+    background: linear-gradient(145deg, var(--color-charcoal), #000);
+    color: var(--text-primary);
+    
+    box-shadow: -20px 0 80px rgba(0, 0, 0, 0.8);
     transition: right 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     display: grid;
     grid-template-rows: 80px 1fr 50px 100px;
     z-index: 1000;
-    border-left: 3px solid #bfff00;
+    
+    /* Elegant Tobacco Border Line */
+    border-left: 2px solid var(--color-tobacco);
 }
 
 .cart.active {
@@ -126,39 +151,40 @@
 }
 
 .cart h2 {
-    background: linear-gradient(to right, #bfff00, #80ff00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-tobacco);
     font-size: 2.4rem;
     padding: 20px;
     margin: 0;
     text-align: center;
-    text-shadow: 0 0 30px rgba(191, 255, 0, 0.4);
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .cart .listCart {
     padding: 20px;
     overflow-y: auto;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
 }
 
+/* ——— CART ITEMS ——— */
 .cart .listCart .item {
-    background: rgba(255, 255, 255, 0.05);
+    display: grid;
+    grid-template-columns: 80px 1fr 130px; /* Tweaked for layout */
+    gap: 16px;
+    align-items: center;
+    
+    background: rgba(255, 255, 255, 0.03);
     border-radius: 16px;
     padding: 16px;
     margin-bottom: 16px;
-    display: grid;
-    grid-template-columns: 80px 1fr 80px;
-    gap: 16px;
-    align-items: center;
-    border: 1px solid rgba(191, 255, 0, 0.2);
+    
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
 .cart .listCart .item:hover {
-    background: rgba(191, 255, 0, 0.1);
-    border-color: #bfff00;
+    background: rgba(143, 105, 76, 0.08); /* Faint tobacco tint */
+    border-color: var(--color-tobacco);
 }
 
 .cart .listCart img {
@@ -167,108 +193,101 @@
     object-fit: cover;
 }
 
-/* SLIDING CART — PERFECT LAYOUT, NO OVERFLOW EVER */
-.cart .listCart .item {
-    display: grid;
-    grid-template-columns: 80px 1fr 140px;   /* ← GIVES QUANTITY REAL SPACE */
-    gap: 16px;
-    align-items: center;
-    background: rgba(255,255,255,0.05);
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 16px;
-    border: 1px solid rgba(191,255,0,0.2);
-    transition: all 0.3s ease;
+.cart .listCart .name {
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
-/* 2. STYLE THE NEW TOTAL PRICED TEXT */
-.cart .total-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Or 'flex-end' if you want it on the right */
-    padding: 0 20px;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #fff;
-    border-top: 1px solid rgba(191, 255, 0, 0.2);
-    letter-spacing: 1px;
-}
-
-/* QUANTITY BOX — SPACIOUS & CENTERED */
+/* ——— QUANTITY CONTROLS ——— */
 .cart .listCart .quantity {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Reduced slightly so they relate to each other better */
-    background: rgba(15,15,15,0.95);
-    padding: 8px 12px; /* Adjusted padding for a cleaner look */
+    gap: 8px;
+    
+    background: var(--color-charcoal);
+    padding: 6px 10px;
     border-radius: 50px;
-    border: 1px solid rgba(191,255,0,0.6); /* Thinner, subtler border */
-    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
     margin-top: 10px;
 }
 
 .cart .listCart .quantity button {
-    /* 1. GEOMETRY FIX: Make them perfect circles */
-    width: 30px;  
-    height: 30px;
-    
-    /* 2. ALIGNMENT FIX: Center the + and - perfectly */
+    width: 28px;  
+    height: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background: linear-gradient(135deg, #bfff00, #80ff00);
-    color: #000;
+    /* Tobacco Gradient for Buttons */
+    background: linear-gradient(135deg, var(--color-tobacco), var(--color-tobacco-rich));
+    color: white;
+    
     border: none;
     border-radius: 50%;
-    
-    /* 3. FONT FIX: Adjusted size to fit inside the 30px circle */
-    font-weight: 800;
-    font-size: 1.4rem; 
-    
+    font-weight: bold;
+    font-size: 1.2rem; 
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(191,255,0,0.4);
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .cart .listCart .quantity button:hover {
-    transform: scale(1.15) rotate(10deg);
-    background: #e0ff4f;
-    box-shadow: 0 0 15px #bfff00;
+    transform: scale(1.15);
+    background: var(--color-gold); /* Turns gold on hover */
+    color: var(--color-charcoal);
 }
 
 .cart .listCart .quantity span {
-    color: #fff;
+    color: var(--color-sand);
     font-weight: 600;
-    font-size: 1.1rem; /* Balanced with the buttons */
-    min-width: 25px;
+    font-size: 1.1rem;
+    min-width: 20px;
     text-align: center;
+}
+
+/* ——— FOOTER AREA (Total & Checkout) ——— */
+.cart .total-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-sand);
+    border-top: 1px solid var(--border-color);
+    letter-spacing: 1px;
+    background: var(--bg-body);
 }
 
 .cart .buttons {
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr; /* Make checkout button bigger */
     gap: 16px;
+    background: var(--bg-body);
 }
 
 .cart .buttons .close {
     height: 60px;
     border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    
+    border: 1px solid var(--border-color);
+    cursor: pointer;
     transition: all 0.4s;
 }
 
 .cart .buttons .close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .cart .buttons .checkout {
@@ -279,19 +298,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #bfff00, #80ff00);
-    color: #000;
+    
+    /* Main CTA Gradient */
+    background: linear-gradient(135deg, var(--color-tobacco), var(--color-tobacco-rich));
+    color: white;
+    
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(191, 255, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(143, 105, 76, 0.3);
     transition: all 0.4s;
 }
 
 .cart .buttons .checkout:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(191, 255, 0, 0.6);
-}
-
-
-.cart-total-price.show {
-    opacity: 1;
+    box-shadow: 0 20px 40px rgba(143, 105, 76, 0.5);
+    background: linear-gradient(135deg, var(--color-tobacco-rich), var(--color-tobacco));
 }

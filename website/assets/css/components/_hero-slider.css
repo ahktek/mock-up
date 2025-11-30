@@ -1,153 +1,152 @@
 /* ============================================= */
-/*        LUXURY CANNABIS HERO SLIDER 2025       */
+/* HERO SLIDER - CINEMATIC PARALLAX EDITION      */
 /* ============================================= */
+
+/* 1. RESET & CONTAINER */
 .home {
     padding: 0 !important;
-    margin-top: -1px !important;   /* pulls slider flush under header */
-}
-.home-slider {
-  position: relative;
-  height: 90vh;
-  min-height: 620px;
-  overflow: hidden;
-  background: #000;
+    margin-top: 0 !important;
+    position: relative;
+    width: 100%;
 }
 
-.home-slider .swiper-wrapper {
-  align-items: center;
+.home-slider {
+    height: 95vh;         /* Nearly full screen */
+    min-height: 700px;    /* Prevents it from getting too short on laptops */
+    background: var(--bg-body);
 }
 
 .home-slider .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    overflow: hidden;     /* Critical: hides the parallax layers sliding out */
+    position: relative;
+    background: #000;
 }
 
+/* 2. BACKGROUND IMAGE LAYER (Depth 1) */
 .home-slider .slide .image {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .home-slider .slide .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.75;
-  transition: transform 10s ease-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Optional: Slight dim to ensure text pops even without overlay */
+    filter: brightness(0.9); 
 }
 
-.home-slider .swiper-slide-active .image img {
-  transform: scale(1.12);
+/* 3. THE CINEMATIC GRADIENT OVERLAY (Depth 2) */
+/* This makes the text readable regardless of the image brightness */
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        to top, 
+        rgba(0,0,0,0.95) 0%,   /* Pure black at bottom */
+        rgba(0,0,0,0.5) 50%,   /* Semi-transparent middle */
+        rgba(0,0,0,0) 100%     /* Clear top */
+    );
+    pointer-events: none; /* Allows clicking through to image if needed */
 }
 
-/* Content Box – the sexy overlay */
-.home-slider .slide .content {
-  position: relative;
-  z-index: 10;
-  max-width: 650px;
-  padding: 50px 40px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(14px);
-  border-radius: 28px;
-  border: 1px solid rgba(191, 255, 0, 0.3);
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+/* 4. CONTENT TYPOGRAPHY (Depth 3) */
+.home-slider .content {
+    position: absolute;
+    bottom: 12%; 
+    left: 8%;
+    z-index: 10;
+    max-width: 850px;
+    padding-right: 20px;
+    text-align: left; 
 }
 
+/* The "Tagline" (e.g., Private Reserve 2025) */
 .home-slider .content span {
-  display: block;
-  color: #bfff00;
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
+    display: block;
+    color: var(--color-tobacco);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 6px; 
+    margin-bottom: 20px;
 }
 
+/* The Main Headline */
 .home-slider .content h3 {
-  font-size: 5.5rem;
-  color: #fff;
-  margin: 12px 0 20px;
-  line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    font-size: 7.5rem;    /* Massive Luxury Font */
+    color: var(--color-sand);
+    line-height: 1.05;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* Subtle shadow to lift it off the background */
+    text-shadow: 0 10px 40px rgba(0,0,0,0.6); 
 }
 
+/* The Description Paragraph */
 .home-slider .content p {
-  font-size: 1.5rem;
-  color: #ddd;
-  line-height: 1.8;
-  margin-bottom: 30px;
+    font-size: 1.6rem;
+    color: #e0e0e0;       /* Light silver */
+    max-width: 550px;
+    line-height: 1.8;
+    margin-bottom: 45px;
+    font-weight: 400;
 }
 
+/* 5. BUTTON STYLING */
 .home-slider .content .btn {
-  display: inline-block;
-  background: #bfff00;
-  color: #000;
-  padding: 16px 48px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 50px;
-  transition: all 0.4s ease;
-  box-shadow: 0 10px 30px rgba(191,255,0,0.3);
+    display: inline-block;
+    padding: 1.4rem 3.5rem;
+    
+    /* Tobacco Gradient */
+    background: linear-gradient(135deg, var(--color-tobacco), var(--color-tobacco-rich));
+    color: white;
+    
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(143, 105, 76, 0.3);
+    transition: all 0.4s ease;
+    text-decoration: none;
 }
 
 .home-slider .content .btn:hover {
-  background: #fff;
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(191,255,0,0.5);
+    background: linear-gradient(135deg, var(--color-tobacco-rich), var(--color-tobacco));
+    color: var(--color-sand);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(143, 105, 76, 0.5);
 }
 
-/* Navigation Arrows – sleek & premium */
+/* 6. NAVIGATION ARROWS (Minimalist & Thin) */
 .home-slider .swiper-button-next,
 .home-slider .swiper-button-prev {
-  width: 64px;
-  height: 64px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 50%;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(191,255,0,0.4);
-  transition: all 0.4s;
-}
-
-.home-slider .swiper-button-next:after,
-.home-slider .swiper-button-prev:after {
-  font-size: 26px;
-  color: #bfff00;
-  font-weight: bold;
+    color: rgba(255,255,255,0.5); /* Subtle by default */
+    transition: all 0.3s;
+    height: 50px;
+    width: 50px;
 }
 
 .home-slider .swiper-button-next:hover,
 .home-slider .swiper-button-prev:hover {
-  background: #bfff00;
-  border-color: #bfff00;
-  transform: scale(1.1);
+    color: var(--color-tobacco); /* Glows tobacco on hover */
+    transform: scale(1.1);
 }
 
-.home-slider .swiper-button-next:hover:after,
-.home-slider .swiper-button-prev:hover:after {
-  color: #000;
+/* 7. RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .home-slider .content h3 { font-size: 5.5rem; }
 }
 
-/* Pagination Bullets */
-.home-slider .swiper-pagination {
-  bottom: 30px;
-}
-
-.home-slider .swiper-pagination-bullet {
-  width: 14px;
-  height: 14px;
-  background: rgba(255,255,255,0.4);
-  opacity: 1;
-  transition: all 0.4s;
-  margin: 0 6px !important;
-}
-
-.home-slider .swiper-pagination-bullet-active {
-  background: #bfff00;
-  transform: scale(1.4);
-  box-shadow: 0 0 25px rgba(191,255,0,0.8);
+@media (max-width: 768px) {
+    .home-slider .content { bottom: 15%; left: 5%; }
+    .home-slider .content h3 { font-size: 4rem; }
+    .home-slider .content span { font-size: 1.1rem; letter-spacing: 3px; }
+    .home-slider .content p { font-size: 1.4rem; max-width: 100%; }
 }

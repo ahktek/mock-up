@@ -242,3 +242,4 @@ if (navbarTotal) {
         slideInTotal.innerText = 'Total: ' + totalPriceFormatted;
     }
 }
+

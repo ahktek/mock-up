@@ -98,9 +98,9 @@ drawerLinks.forEach(link => {
 
 // ==================== LUXURY DROPDOWN MENUS (HOVER + CLICK + ANIMATED) ====================
   setupDropdownMenus() {
-    document.querySelectorAll(".dropdown").forEach(dropdown => {
-      const toggle = dropdown.querySelector(".dropdown-toggle");
-      const menu   = dropdown.querySelector(".dropdown-menu");
+    document.querySelectorAll(".mega-dropdown").forEach(dropdown => {        // ← CHANGED
+    const toggle = dropdown.querySelector(".mega-toggle");                 // ← CHANGED
+    const menu   = dropdown.querySelector(".mega-panel");
       if (!toggle || !menu) return;
 
       // 1. Timer Variable
@@ -116,10 +116,10 @@ drawerLinks.forEach(link => {
         if (hideTimeout) clearTimeout(hideTimeout); // Stop the close timer!
 
         // Close all other menus first
-        document.querySelectorAll(".dropdown-menu").forEach(m => {
+        document.querySelectorAll(".mega-panel").forEach(m => {
           if (m !== menu) m.classList.remove("show");
         });
-        document.querySelectorAll(".dropdown-toggle").forEach(t => {
+        document.querySelectorAll(".mega-toggle").forEach(t => {
           if (t !== toggle) t.setAttribute("aria-expanded", "false");
         });
 
@@ -174,9 +174,9 @@ drawerLinks.forEach(link => {
 
   // Close all dropdowns – bound to correct `this`
   closeAllDropdowns() {
-    document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("show"));
-    document.querySelectorAll(".dropdown-toggle").forEach(toggle => toggle.setAttribute("aria-expanded", "false"));
-  }
+  document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("show"));
+  document.querySelectorAll(".dropdown-toggle").forEach(toggle => toggle.setAttribute("aria-expanded", "false"));
+}
 
   // Global handlers – now using bound method
   setupGlobalClickAndEscapeHandlers() {
@@ -190,38 +190,45 @@ drawerLinks.forEach(link => {
   }
 }
 
-// ===================== INITIALIZE EVERYTHING =====================
-document.addEventListener("DOMContentLoaded", () => {
-  new SiteNavigation();
+// ===================== HERO SLIDER (PARALLAX ENABLED) =====================
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Safety Check: Ensure Swiper library is loaded
+    if (typeof Swiper !== 'undefined' && document.querySelector('.home-slider')) {
+        
+        const heroSlider = new Swiper(".home-slider", {
+            // ESSENTIAL SETTINGS
+            loop: true,
+            speed: 1500,        // Slow transition = Luxury feel
+            parallax: true,     // <--- The Magic Key. Enables the 3D effect.
+            
+            // AUTOPLAY
+            autoplay: {
+                delay: 6000,    // 6 seconds per slide
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
 
-  // ===================== HERO SLIDER (100% WORKING) =====================
-  if (typeof Swiper === "undefined") return console.warn("Swiper not loaded");
+            // NAVIGATION ARROWS
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            
+            // DOTS PAGINATION
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true // Makes dots change size (nice touch)
+            },
 
-  const heroSlider = new Swiper(".home-slider", {
-    loop: true,
-    speed: 1400,
-    effect: "fade",
-    fadeEffect: { crossFade: true },
-    centeredSlides: true,
-    grabCursor: true,
-    parallax: true,
-
-    autoplay: {
-      delay: 5500,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true
-    },
-
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-    pagination: { el: ".swiper-pagination", clickable: true, dynamicBullets: true },
-
-    keyboard: { enabled: true },
-    init: false
-  });
-
-  heroSlider.on("init", function () { this.autoplay.start(); });
-  heroSlider.init();
-
-  heroSlider.el.addEventListener("mouseenter", () => heroSlider.autoplay.stop());
-  heroSlider.el.addEventListener("mouseleave", () => heroSlider.autoplay.start());
+            // KEYBOARD CONTROL
+            keyboard: {
+                enabled: true,
+            }
+        });
+    } else {
+        console.warn("Swiper JS not found or .home-slider missing");
+    }
 });
+

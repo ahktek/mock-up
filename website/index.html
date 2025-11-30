@@ -18,10 +18,19 @@
     
     <!-- 4. Swiper JS (MUST come before your script) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Preconnect + Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Satoshi:wght@400;500;700&display=swap');
+    </style>
     
     <!-- 5. YOUR SINGLE SCRIPT (rename script.js → main.js or keep one file) -->
-    <script src="app.js"></script>
-    <script src="script.js"></script>
+    <script src="/website/script.js"></script>
+    <script src="/website/app.js"></script>
+    
 </head>
 <body>
     <!-- Header Section Start -->
@@ -42,40 +51,43 @@
     <!-- Desktop Nav – looks like THC Vancouver, but uses your existing dropdown system -->
     <nav class="navbar desktop-nav">
       
-      <!-- Replaces your old Category dropdown but keeps exact same classes -->
-      <div class="dropdown">
-        <a href="#" class="dropdown-toggle nav-link" aria-haspopup="true" aria-expanded="false">
-          SHOP ALL <i class="fas fa-chevron-down"></i>
-        </a>
-        <ul class="dropdown-menu mega-style">
-          <div class="mega-grid">
-            <div>
-              <h4>Flower</h4>
-              <li><a href="#">Indica</a></li>
-              <li><a href="#">Sativa</a></li>
-              <li><a href="#">Hybrid</a></li>
-            </div>
-            <div>
-              <h4>Vapes</h4>
-              <li><a href="#">510 Carts</a></li>
-              <li><a href="#">Live Resin</a></li>
-              <li><a href="#">Disposables</a></li>
-            </div>
-            <div>
-              <h4>Concentrates</h4>
-              <li><a href="#">Shatter</a></li>
-              <li><a href="#">Diamonds</a></li>
-              <li><a href="#">Hash</a></li>
-            </div>
-            <div>
-              <h4>More</h4>
-              <li><a href="#">Edibles</a></li>
-              <li><a href="#">Pre-Rolls</a></li>
-              <li><a href="#">Accessories</a></li>
-            </div>
-          </div>
-        </ul>
+      <!-- FINAL 2025 MEGA MENU — WORKS WITH YOUR EXISTING JS -->
+<div class="dropdown mega-dropdown">  <!-- ← BOTH CLASSES = BEST OF BOTH WORLDS -->
+  <button class="dropdown-toggle mega-toggle nav-link" aria-expanded="false">
+    SHOP ALL <i class="fas fa-chevron-down"></i>
+  </button>
+
+  <div class="dropdown-menu mega-panel">  <!-- ← BOTH CLASSES AGAIN -->
+    <div class="mega-container">
+      <div class="mega-grid">
+        <div class="mega-column">
+          <h4>Flower</h4>
+          <a href="#">Indica</a>
+          <a href="#">Sativa</a>
+          <a href="#">Hybrid</a>
+        </div>
+        <div class="mega-column">
+          <h4>Vapes</h4>
+          <a href="#">510 Carts</a>
+          <a href="#">Live Resin</a>
+          <a href="#">Disposables</a>
+        </div>
+        <div class="mega-column">
+          <h4>Concentrates</h4>
+          <a href="#">Shatter</a>
+          <a href="#">Diamonds</a>
+          <a href="#">Hash</a>
+        </div>
+        <div class="mega-column">
+          <h4>More</h4>
+          <a href="#">Edibles</a>
+          <a href="#">Pre-Rolls</a>
+          <a href="#">Accessories</a>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
 
       <a href="#" class="nav-link">DEALS</a>
       <a href="/website/pages/recommended.html" class="nav-link">RECOMMENDED</a>
@@ -91,13 +103,18 @@
 <!-- Icons – now only search + cart, pinned to the right -->
 <div class="icons">
   <i class="fas fa-search" id="search-icon"></i>
-  <i class="fas fa-shopping-cart iconCart" data-count="0"></i>
+
+  <!-- WRAP ICON + PRICE IN ONE DIV -->
+  <div class="cart-wrapper">
+    <i class="fas fa-shopping-cart iconCart" data-count="0"></i>
+    <span class="cart-total-price">$0.00</span>
+  </div>
 </div>
 
   </div>
 
   <!-- CATEGORY BAR (bottom of header) – pure THC energy -->
-  <div class="category-bar">
+  <!-- <div class="category-bar">
     <a href="#">FLOWER</a>
     <a href="#">PRE-ROLLS</a>
     <a href="#">VAPES</a>
@@ -105,7 +122,7 @@
     <a href="#">EDIBLES</a>
     <a href="#">MUSHROOMS</a>
     <a href="#">ACCESSORIES</a>
-  </div>
+  </div> -->
 </header>
     <div class="container"></div>     <!-- ONLY USING IT FOR CART SLIDE IN FUNCTION -->
     <!-- Header Section End -->
@@ -120,61 +137,80 @@
     <!-- home section start -->
 
     <section class="home" id="home">
+    <div class="swiper home-slider">
+        <div class="swiper-wrapper">
 
-        <div class="swiper mySwiper home-slider">
-  <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="image" data-swiper-parallax="50%">
+                    <img src="images/home3.png" alt="Premium Cannabis Collection">
+                </div>
+                
+                <div class="slide-overlay"></div>
+                
+                <div class="content">
+                    <span data-swiper-parallax="-200">Private Reserve 2025</span>
+                    <h3 data-swiper-parallax="-400">Refined<br>Potency</h3>
+                    <p data-swiper-parallax="-600">
+                        Experience full-spectrum distillate with zero fillers. 
+                        Pure, lab-tested luxury for the discerning connoisseur.
+                    </p>
+                    <a href="recommended.html" class="btn" data-swiper-parallax="-800">
+                        View Collection
+                    </a>
+                </div>
+            </div>
 
-    <div class="swiper-slide slide">
-      <div class="content" data-swiper-parallax="-600" data-swiper-parallax-opacity="0">
-        <span>Exclusive Launch Offer</span>
-        <h3>Up to 50% Off</h3>
-        <p>Premium THC cartridges · Lab-tested · Same-day delivery in Canada</p>
-        <a href="#products" class="btn">Shop Now</a>
-      </div>
-      <div class="image" data-swiper-parallax="-300">
-        <img src="images/discount.png" alt="THC Cartridge Discount">
-      </div>
+            <div class="swiper-slide">
+                <div class="image" data-swiper-parallax="50%">
+                    <img src="images/delivery.png" alt="Discreet Delivery">
+                </div>
+                <div class="slide-overlay"></div>
+                <div class="content">
+                    <span data-swiper-parallax="-200">Concierge Service</span>
+                    <h3 data-swiper-parallax="-400">Discreet<br>Arrival</h3>
+                    <p data-swiper-parallax="-600">
+                        Same-day delivery in anonymous, premium packaging. 
+                        Your privacy is our ultimate priority.
+                    </p>
+                    <a href="#delivery" class="btn" data-swiper-parallax="-800">
+                        Track Order
+                    </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="image" data-swiper-parallax="50%">
+                    <img src="images/discount.png" alt="Exclusive Access">
+                </div>
+                <div class="slide-overlay"></div>
+                <div class="content">
+                    <span data-swiper-parallax="-200">Members Only</span>
+                    <h3 data-swiper-parallax="-400">Grand<br>Opening</h3>
+                    <p data-swiper-parallax="-600">
+                        Unlock exclusive access to our limited strains. 
+                        Secure your first order with a privilege discount.
+                    </p>
+                    <a href="recommended.html" class="btn" data-swiper-parallax="-800">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        
+        <div class="swiper-pagination"></div>
     </div>
-
-    <div class="swiper-slide slide">
-      <div class="content" data-swiper-parallax="-600" data-swiper-parallax-opacity="0">
-        <span>Fast & Discreet</span>
-        <h3>Delivery Within Hours</h3>
-        <p>100% anonymous packaging · Track your order live</p>
-        <a href="#delivery" class="btn">Learn More</a>
-      </div>
-      <div class="image" data-swiper-parallax="-300">
-        <img src="images/delivery.png" alt="Fast Cannabis Delivery">
-      </div>
-    </div>
-
-    <div class="swiper-slide slide">
-      <div class="content" data-swiper-parallax="-600" data-swiper-parallax-opacity="0">
-        <span>Lab-Tested Purity</span>
-        <h3>Only The Best Strains</h3>
-        <p>Full-spectrum distillate · No fillers · COAs available</p>
-        <a href="#strains" class="btn">View Strains</a>
-      </div>
-      <div class="image" data-swiper-parallax="-300">
-        <img src="images/home3.png" alt="Premium THC Vape">
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Controls -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-pagination"></div>
-</div>
-    </section>
+</section>
 
     <!-- home section end -->
 
 </section>
 
 <!-- Order Section Start -->
-<section id="order-section">
+<!-- <section id="order-section">
     <h2>Order a Fragrance now!!!</h2>
     <form id="order-form">
       <label for="zip-code" class="location-label">Enter your City:</label>
@@ -192,29 +228,48 @@
   
       <button type="submit" class="btn">Order Perfume</button>
     </form>
-</section>
+</section> -->
 
-<!-- Featured restaurant -->
-<section id="featured-restaurants">
+<section id="featured-products">
     <h2>Featured Perfumes</h2>
-    <div class="restaurant-container">
-        <div class="restaurant">
-            <img src="images/featured1.png" alt="Restaurant 1">
-            <h3>Mystery</h3>
-            
-            <a href="recommended.html" class="btn" target="_blank">Order Now</a>
+    
+    <div class="featured-products-container">
+        
+        <div class="product-card">
+            <img src="images/featured1.png" alt="Mystery">
+            <div class="card-overlay-content">
+                <h3>Mystery</h3>
+                <div class="price">$120.00</div>
+                
+                <a href="recommended.html" class="static-view-btn">
+                    View Options
+                </a>
+            </div>
         </div>
-        <div class="restaurant">
-            <img src="images/featured2.png" alt="Restaurant 2">
-            <h3>Blood Temptation</h3>
-            <a href="recommended.html" class="btn" target="_blank">Order Now</a>
+
+        <div class="product-card">
+            <img src="images/featured2.png" alt="Blood Temptation">
+            <div class="card-overlay-content">
+                <h3>Blood Temptation</h3>
+                <div class="price">$145.00</div>
+                <a href="recommended.html" class="static-view-btn">
+                    View Options
+                </a>
+            </div>
         </div>
-        <div class="restaurant">
-            <img src="images/featured3.png" alt="Restaurant 3">
-            <h3> Attar </h3>
-            <a href="recommended.html" class="btn" target="_blank">Order Now</a>
+
+        <div class="product-card">
+            <img src="images/featured3.png" alt="Royal Attar">
+            <div class="card-overlay-content">
+                <h3>Royal Attar</h3>
+                <div class="price">$180.00</div>
+                <a href="recommended.html" class="static-view-btn">
+                    View Options
+                </a>
+            </div>
         </div>
-    </div>
+
+        </div>
 </section>
 
   
@@ -332,7 +387,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="total-bar">Total: $0.00</div>
         <div class="buttons">
             <div class="close">CLOSE</div>
             <div class="checkout">
