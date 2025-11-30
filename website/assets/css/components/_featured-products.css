@@ -1,0 +1,164 @@
+/* ============================================= */
+/* FEATURED PRODUCTS (STATIC NAMING REFACTOR)    */
+/* ============================================= */
+
+#featured-products {
+    padding: 6rem 5%;
+    background: var(--color-charcoal-light); 
+    text-align: center;
+}
+
+#featured-products h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-tobacco);
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* CONTAINER */
+.featured-products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* CARD (PARENT) */
+.product-card {
+    position: relative;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: var(--bg-card);
+    transition: var(--ease-smooth);
+}
+
+.product-card:hover {
+    border-color: var(--color-tobacco);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* IMAGE */
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* OVERLAY (The Dark Gradient) */
+.product-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(28, 28, 28, 0.95) 10%, transparent 80%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+/* CONTENT WRAPPER (Grouping text for easier animation) */
+.card-overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns text to left */
+}
+
+/* TEXT ANIMATIONS */
+.card-overlay-content h3, 
+.card-overlay-content .price, 
+.card-overlay-content .static-add-cart-btn {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .card-overlay-content h3, 
+.product-card:hover .card-overlay-content .price, 
+.product-card:hover .card-overlay-content .static-add-cart-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* STAGGER DELAYS */
+.product-card:hover h3 { transition-delay: 0.1s; }
+.product-card:hover .price { transition-delay: 0.2s; }
+.product-card:hover .static-add-cart-btn { transition-delay: 0.3s; }
+
+/* TEXT STYLING */
+.card-overlay-content h3 {
+    font-size: 2rem;
+    color: var(--color-sand);
+    margin: 0 0 5px 0;
+}
+
+.card-overlay-content .price {
+    font-size: 1.6rem;
+    color: var(--color-tobacco);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* BUTTON STYLING */
+.static-view-btn {
+    padding: 0.8rem 1.8rem;
+    
+    /* Luxury Gradient */
+    background: linear-gradient(135deg, var(--color-tobacco), var(--color-tobacco-rich));
+    color: white;
+    
+    font-weight: 600;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none; /* Removes underline from link */
+    
+    cursor: pointer;
+    border: none;
+    align-self: flex-end; 
+    box-shadow: 0 5px 15px rgba(143, 105, 76, 0.3);
+    
+    /* Ensure link behaves like a button box */
+    display: inline-block; 
+}
+
+.static-view-btn:hover {
+    background: linear-gradient(135deg, var(--color-tobacco-rich), var(--color-tobacco));
+    color: var(--color-sand);
+    transform: translateY(-2px); /* Tiny lift effect */
+}
+
+/* UPDATE ANIMATION SELECTORS */
+/* We renamed the class, so we must update the animation trigger too */
+.card-overlay-content .static-view-btn {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .card-overlay-content .static-view-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card:hover .static-view-btn { transition-delay: 0.3s; }

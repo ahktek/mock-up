@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elvyn | Luxury Cannabis</title>
-    <link rel="icon" href="images/main.png" type="image/png">
+    <title>Elvyn | Recommended</title>
+    <link rel="icon" href="/website/images/main.png" type="image/png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     
@@ -14,7 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="/website/style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
@@ -28,8 +29,8 @@
     <header class="main-header">
         <div class="nav-container">
 
-            <a href="#" class="logo">
-                <img src="images/main.png" alt="Elvyn Logo">
+            <a href="/website/index.html" class="logo">
+                <img src="/website/images/main.png" alt="Elvyn Logo">
             </a>
 
             <nav class="navbar desktop-nav">
@@ -71,7 +72,7 @@
                 </div>
 
                 <a href="#" class="nav-link">DEALS</a>
-                <a href="/website/pages/recommended.html" class="nav-link">RECOMMENDED</a>
+                <a href="/website/index.html" class="nav-link">HOME</a>
                 <a href="/signup.html" class="nav-link">SIGN UP</a>
                 <a href="signin.html" class="nav-link">SIGN IN</a>
             </nav>
@@ -87,6 +88,16 @@
             </div>
 
         </div>
+
+        <!-- <div class="category-bar">
+            <a href="#">FLOWER</a>
+            <a href="#">PRE-ROLLS</a>
+            <a href="#">VAPES</a>
+            <a href="#">CONCENTRATES</a>
+            <a href="#">EDIBLES</a>
+            <a href="#">MUSHROOMS</a>
+            <a href="#">ACCESSORIES</a>
+        </div> -->
     </header>
 
     <div class="container"></div> 
@@ -100,11 +111,11 @@
     <div class="drawer-overlay"></div>
     <div class="mobile-drawer">
         <div class="drawer-header">
-            <img src="images/main.png" alt="BudFast" class="drawer-logo">
+            <img src="/website/images/main.png" alt="BudFast" class="drawer-logo">
             <i class="fas fa-times drawer-close"></i>
         </div>
         <nav class="drawer-nav">
-            <a href="#" class="drawer-link">Home</a>
+            <a href="/website/index.html" class="drawer-link">Home</a>
             <div class="drawer-dropdown">
                 <a href="#" class="drawer-link dropdown-toggle-mobile">
                     Shop Categories <i class="fas fa-chevron-down"></i>
@@ -137,104 +148,18 @@
         <div class="buttons">
             <div class="close">CLOSE</div>
             <div class="checkout">
-                <a href="/website/pages/checkout.html">CHECKOUT</a>
+                <a href="checkout.html">CHECKOUT</a>
             </div>
         </div>
     </div>
 
-    <section class="home" id="home">
-        <div class="swiper home-slider">
-            <div class="swiper-wrapper">
-                
-                <div class="swiper-slide">
-                    <div class="image" data-swiper-parallax="50%">
-                        <img src="images/home3.png" alt="Premium Cannabis Collection">
-                    </div>
-                    <div class="slide-overlay"></div>
-                    <div class="content">
-                        <span data-swiper-parallax="-200">Private Reserve 2025</span>
-                        <h3 data-swiper-parallax="-400">Refined<br>Potency</h3>
-                        <p data-swiper-parallax="-600">
-                            Experience full-spectrum distillate with zero fillers. 
-                            Pure, lab-tested luxury for the discerning connoisseur.
-                        </p>
-                        <a href="recommended.html" class="btn" data-swiper-parallax="-800">View Collection</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="image" data-swiper-parallax="50%">
-                        <img src="images/delivery.png" alt="Discreet Delivery">
-                    </div>
-                    <div class="slide-overlay"></div>
-                    <div class="content">
-                        <span data-swiper-parallax="-200">Concierge Service</span>
-                        <h3 data-swiper-parallax="-400">Discreet<br>Arrival</h3>
-                        <p data-swiper-parallax="-600">
-                            Same-day delivery in anonymous, premium packaging. 
-                            Your privacy is our ultimate priority.
-                        </p>
-                        <a href="#delivery" class="btn" data-swiper-parallax="-800">Track Order</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="image" data-swiper-parallax="50%">
-                        <img src="images/discount.png" alt="Exclusive Access">
-                    </div>
-                    <div class="slide-overlay"></div>
-                    <div class="content">
-                        <span data-swiper-parallax="-200">Members Only</span>
-                        <h3 data-swiper-parallax="-400">Grand<br>Opening</h3>
-                        <p data-swiper-parallax="-600">
-                            Unlock exclusive access to our limited strains. 
-                            Secure your first order with a privilege discount.
-                        </p>
-                        <a href="recommended.html" class="btn" data-swiper-parallax="-800">Shop Now</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <section id="featured-products">
-        <h2>Featured Perfumes</h2>
-        <div class="featured-products-container">
-            
-            <div class="product-card">
-                <img src="images/featured1.png" alt="Mystery">
-                <div class="card-overlay-content">
-                    <h3>Mystery</h3>
-                    <div class="price">$120.00</div>
-                    <a href="recommended.html" class="static-view-btn">View Options</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="images/featured2.png" alt="Blood Temptation">
-                <div class="card-overlay-content">
-                    <h3>Blood Temptation</h3>
-                    <div class="price">$145.00</div>
-                    <a href="recommended.html" class="static-view-btn">View Options</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="images/featured3.png" alt="Royal Attar">
-                <div class="card-overlay-content">
-                    <h3>Royal Attar</h3>
-                    <div class="price">$180.00</div>
-                    <a href="recommended.html" class="static-view-btn">View Options</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    <div class="container" style="margin-top: 50px;">
+        <h1 style="text-align: center; color: var(--color-tobacco); font-family: 'Clash Display'; margin-bottom: 30px;">
+            Recommended Products
+        </h1>
+        
+        <div class="listProduct"></div>
+    </div>
 
     <footer class="footer">
         <div class="footer-section">

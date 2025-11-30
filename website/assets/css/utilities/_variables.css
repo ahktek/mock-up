@@ -1,0 +1,76 @@
+/* ============================================= */
+/* 1. GLOBAL VARIABLES (:root)         */
+/* ============================================= */
+:root {
+    /* --- PALETTE: THE RAW COLORS (Luxury/Dark Theme) --- */
+    --color-charcoal:       #1C1C1C;  /* Deep Black/Gray */
+    --color-charcoal-light: #252525;  /* For Cards/Sections */
+    --color-tobacco:        #8F694C;  /* Main Accent */
+    --color-tobacco-rich:   #6B5038;  /* Darker Accent (Hover) */
+    --color-sand:           #F5E6D3;  /* Main Text Color */
+    --color-gold:           #D4B89A;  /* Secondary Highlights */
+    --color-danger:         #cf2e2e;  /* Error/Delete buttons */
+
+    /* --- SEMANTICS: HOW WE USE THEM --- */
+    
+    /* Backgrounds */
+    --bg-body:         var(--color-charcoal);
+    --bg-card:         var(--color-charcoal-light);
+    --bg-glass:        rgba(28, 28, 28, 0.90);
+    
+    /* Text */
+    --text-primary:    var(--color-sand);
+    --text-muted:      #999999;
+    --text-on-accent:  #ffffff;
+
+    /* Borders & Lines */
+    --border-color:    rgba(143, 105, 76, 0.2); /* Subtle Tobacco line */
+    
+    /* Effects */
+    --box-shadow:      0 10px 30px rgba(0, 0, 0, 0.4);
+    --neon-glow:       0 0 10px rgba(143, 105, 76, 0.4);
+    
+    /* Transitions */
+    --ease-smooth:     all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================= */
+/* 2. GLOBAL RESET (The Foundation)    */
+/* ============================================= */
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    
+    /* NOTE: Removed 'text-transform: capitalize'. 
+       Never put text-transform on the global '*' selector.
+       It breaks emails, URLs, and normal sentence flow.
+    */
+
+    /* Default Transition */
+    transition: var(--ease-smooth);
+}
+
+/* ============================================= */
+/* 3. HTML BASE SETTINGS               */
+/* ============================================= */
+html {
+    font-size: 62.5%; /* This makes 1rem = 10px (Math is easier) */
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-body);
+    color: var(--text-primary);
+    
+    /* Professional Font Stack: Uses the best available font on the user's OS */
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    
+    line-height: 1.6;
+    font-size: 1.6rem; /* Equates to 16px */
+}

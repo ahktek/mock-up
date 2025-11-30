@@ -1,0 +1,161 @@
+
+/* ===== FINAL MOBILE HEADER – NO SHIFTING, NO CONFLICTS ===== */
+@media (max-width: 992px) {
+  .home {
+        padding: 0;
+        margin-top: 0;
+    }
+  .nav-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;     /* Center the logo */
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  /* 1. HAMBURGER – Fixed left */
+  .mobile-menu-toggle {
+    position: absolute;
+    left: 20px;
+    font-size: 2.6rem;
+    color: #bfff00;
+    cursor: pointer;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  /* 2. LOGO – Perfectly centered */
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+
+  .logo img {
+    height: 56px !important;
+  }
+
+  /* 3. SEARCH + CART – Fixed flush right */
+  .icons {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .icons i,
+  .icons a {
+    font-size: 2.2rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(12px);
+  }
+
+  /* Hide desktop stuff */
+  .navbar.desktop-nav,
+  .category-bar {
+    display: none !important;
+  }
+}
+
+/* HERO SLIDER – MOBILE: COMPACT & FAST (NO MORE GIANT SLIDER) */
+@media (max-width: 992px) {
+  .home-slider {
+    height: 70vh !important;        /* Much shorter */
+    min-height: 380px !important;   /* Prevents it from being too tall on small phones */
+    margin-top: 0 !important;
+  }
+
+  .home-slider .slide .content {
+    padding: 30px 20px !important;
+    max-width: 90% !important;
+    border-radius: 20px;
+  }
+
+  .home-slider .content span {
+    font-size: 1.4rem !important;
+    letter-spacing: 3px;
+  }
+
+  .home-slider .content h3 {
+    font-size: 4.2rem !important;
+    line-height: 1.1;
+  }
+
+  .home-slider .content p {
+    font-size: 1.5rem !important;
+    line-height: 1.6;
+    margin: 16px 0;
+  }
+
+  .home-slider .content .btn {
+    padding: 14px 36px !important;
+    font-size: 1.4rem !important;
+  }
+
+  /* Smaller arrows on mobile */
+  .home-slider .swiper-button-next,
+  .home-slider .swiper-button-prev {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .home-slider .swiper-button-next:after,
+  .home-slider .swiper-button-prev:after {
+    font-size: 20px !important;
+  }
+
+  /* Hide pagination on mobile if you want even cleaner */
+  /* .home-slider .swiper-pagination { display: none; } */
+}
+@media (max-width: 480px) {
+  .home-slider {
+    height: 65vh !important;
+    min-height: 420px !important;
+  }
+
+  .home-slider .content h3 {
+    font-size: 3.6rem !important;
+  }
+
+  .home-slider .content p {
+    font-size: 1.4rem !important;
+  }
+}
+@media (max-width: 480px) {
+    .cart {
+        width: 100vw;
+        max-width: 100vw;
+    }
+    .cart .listCart .item {
+        grid-template-columns: 70px 1fr 140px;   /* gives quantity more breathing room */
+        gap: 12px;
+        padding: 14px;
+    }
+    .cart .listCart .quantity {
+        padding: 10px 16px;
+        gap: 14px;
+    }
+    .cart .listCart .quantity button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .cart-total-price {
+        display: none !important;
+    }
+}

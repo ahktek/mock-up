@@ -1,0 +1,45 @@
+/* ============================================= */
+/* BUTTONS (_button.css)               */
+/* ============================================= */
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    
+    /* Typography */
+    font-size: 1.7rem;
+    font-weight: 600;        /* Make it bold to stand out */
+    letter-spacing: 0.5px;
+    
+    /* NEW COLORS */
+    color: var(--text-on-accent);      /* White text */
+    background: var(--color-tobacco);  /* The Main Brand Color */
+    
+    border-radius: .5rem;
+    cursor: pointer;
+    
+    /* FIX: Increased side padding from .3rem to 3rem for premium look */
+    padding: 1rem 3rem; 
+    
+    /* Use the smooth animation defined in variables.css */
+    transition: var(--ease-smooth); 
+    border: 1px solid transparent; /* Prevents layout shift on hover if you add borders later */
+}
+
+.btn:hover {
+    /* Darker shade of tobacco */
+    background: var(--color-tobacco-rich); 
+    
+    /* The spacing effect you liked */
+    letter-spacing: 0.2rem; 
+    
+    /* Add a subtle glow/shadow on hover */
+    box-shadow: 0 5px 15px rgba(143, 105, 76, 0.4); 
+    transform: translateY(-2px);
+}
+
+/* Optional: Active state (when clicking) */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

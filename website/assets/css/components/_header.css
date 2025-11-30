@@ -1,0 +1,412 @@
+/* ============================================= */
+/* HEADER.CSS - FINAL LUXURY FIX                 */
+/* ============================================= */
+
+/* LOGO ANIMATION */
+.main-header .logo img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 15px rgba(143, 105, 76, 0.4)); 
+}
+.main-header .logo img {
+    height: 68px !important;
+    width: auto !important;
+    transition: var(--ease-smooth);
+}
+.top-bar + .main-header {
+    margin-top: 0 !important;
+}
+
+/* TOP BAR */
+.top-bar { 
+    background: var(--color-charcoal-light);
+    color: var(--color-tobacco);
+    text-align: center; 
+    padding: 10px; 
+    font-weight: bold; 
+    font-size: 0.9rem; 
+    letter-spacing: 2px; 
+}
+
+/* MAIN HEADER BAR */
+.main-header { 
+    background: var(--bg-body);
+    position: sticky; 
+    top: 0; 
+    z-index: 999; 
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* CONTAINER & LAYOUT */
+.nav-container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    height: 70px;
+    position: relative; 
+}
+
+/* --- [CRITICAL FIX] HIDE MOBILE ICON ON DESKTOP --- */
+.mobile-menu-toggle {
+    display: none; /* Hidden by default on big screens */
+}
+
+/* DESKTOP NAVIGATION (Centered) */
+.navbar.desktop-nav { 
+    display: flex; 
+    gap: 40px; 
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* NAVIGATION LINKS */
+.nav-link { 
+    color: var(--text-primary);
+    font-weight: 600; 
+    text-transform: uppercase; 
+    font-size: 0.95rem; 
+    letter-spacing: 1px; 
+    transition: 0.3s; 
+}
+.nav-link:hover { 
+    color: var(--color-tobacco);
+}
+
+/* MEGA MENU STYLING */
+.mega-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.mega-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: color 0.3s;
+}
+
+.mega-toggle:hover,
+.mega-toggle[aria-expanded="true"] {
+    color: var(--color-tobacco);
+}
+
+.mega-toggle i {
+    display: inline-block; /* Crucial for rotation */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+.mega-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+/* MEGA PANEL */
+.mega-panel {
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 700px;
+    background: var(--bg-glass); 
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    padding: 50px;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+}
+
+.mega-dropdown:hover .mega-panel,
+.mega-panel.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+/* 2. Rotate when User HOVERS the container (Instant CSS) */
+.mega-dropdown:hover .mega-toggle i {
+    transform: rotate(180deg);
+}
+/* 3. Rotate when JS says it is open (Click/Keyboard support) */
+.mega-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.mega-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mega-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+}
+
+.mega-column h4 {
+    color: var(--color-tobacco);
+    font-size: 1.1rem;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.mega-column a {
+    display: block;
+    color: var(--text-muted);
+    padding: 10px 0;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.mega-column a:hover {
+    color: var(--color-tobacco);
+    padding-left: 12px;
+}
+
+/* CART + ACCOUNT ICONS */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icons i,
+.icons a {
+    color: var(--text-primary) !important;
+    font-size: 2.0rem;            
+    width: 40px;                  
+    height: 40px;                 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 50%;
+    backdrop-filter: blur(12px);
+    transition: all 0.35s ease;
+    position: relative;
+    text-decoration: none;        
+}
+
+.icons i:hover,
+.icons a:hover {
+    background: var(--color-tobacco);
+    color: var(--color-charcoal) !important;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(143, 105, 76, 0.45);
+}
+
+/* CART BADGE */
+.icons .fa-shopping-cart::after {
+    content: attr(data-count);
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--color-danger);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 10px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--bg-body);
+    padding: 0 6px;
+    box-shadow: 0 4px 15px rgba(207, 46, 46, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* CART TOTAL PRICE BUBBLE */
+.cart-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse; 
+}
+
+.cart-total-price {
+    margin-left: 0;       
+    margin-right: 12px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-tobacco);
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    padding: 7px 14px;
+    border-radius: 30px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(143, 105, 76, 0.2);
+    border: 1px solid var(--border-color);
+    letter-spacing: 0.8px;
+}
+
+.cart-total-price.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* MOBILE DRAWER STYLES */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 999;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 380px;
+    height: 100%;
+    background: linear-gradient(145deg, var(--color-charcoal), var(--color-charcoal-light));
+    border-right: 1px solid var(--border-color);
+    box-shadow: 20px 0 60px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-drawer.active {
+    left: 0;
+}
+
+.drawer-header {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.drawer-logo {
+    height: 50px;
+    filter: drop-shadow(0 0 10px rgba(143, 105, 76, 0.5));
+}
+
+.drawer-close {
+    font-size: 2rem;
+    color: var(--color-tobacco);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.drawer-close:hover {
+    transform: rotate(90deg);
+    color: var(--text-primary);
+}
+
+.drawer-nav {
+    flex: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.drawer-link {
+    display: block;
+    padding: 18px 30px;
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.drawer-link:hover {
+    background: rgba(143, 105, 76, 0.15);
+    color: var(--color-tobacco);
+    padding-left: 40px;
+}
+
+/* MOBILE SUBMENU */
+.drawer-submenu {
+    background: rgba(0, 0, 0, 0.2);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.drawer-submenu.active {
+    max-height: 500px;
+    padding: 8px 0;
+}
+
+.drawer-submenu a {
+    padding: 12px 50px !important;
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    display: block;
+}
+
+.drawer-submenu a:hover {
+    color: var(--color-tobacco);
+    background: rgba(143, 105, 76, 0.1);
+}
+
+.drawer-footer {
+    padding: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+
+/* ============================================= */
+/* RESPONSIVE LOGIC (THE FIX)                    */
+/* ============================================= */
+@media (max-width: 992px) {
+    /* 1. Show the Hamburger Icon */
+    .mobile-menu-toggle {
+        display: block !important;
+        font-size: 2.2rem;
+        color: var(--color-tobacco);
+        cursor: pointer;
+        position: absolute; /* Keeps it strictly on the left */
+        left: 20px;
+        z-index: 1001;
+    }
+
+    /* 2. Hide the Text Links (Shop, Deals, etc.) */
+    .navbar.desktop-nav {
+        display: none !important;
+    }
+
+    /* 3. Hide Cart Price Text on Mobile */
+    .cart-total-price {
+        display: none !important;
+    }
+}

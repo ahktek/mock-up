@@ -1,0 +1,8 @@
+section {
+    padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+    /* OLD: background: #eee;  <-- This would look bad on a dark site */
+    background: var(--bg-section-alt); /* <-- New, subtle dark gray */
+}
