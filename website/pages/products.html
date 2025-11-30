@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Elvyn</title>
+    <link rel="icon" href="images/main.png" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-bar"><p>FREE SAME-DAY DELIVERY ON ALL ORDERS $99+</p></div>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/main.png" alt="Elvyn"></a>
+            <nav class="navbar desktop-nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="recommended.html" class="nav-link">SHOP</a>
+                <a href="checkout.html" class="nav-link">CART</a>
+            </nav>
+            <div class="icons">
+                <div class="cart-wrapper">
+                    <i class="fas fa-shopping-cart iconCart" data-count="0"></i>
+                    <span class="cart-total-price">$0.00</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container product-detail-container" style="margin-top: 80px; margin-bottom: 80px;">
+        
+        <div class="detail-grid">
+            <div class="detail-image">
+                <img src="" alt="" id="detail-img">
+            </div>
+
+            <div class="detail-info">
+                <h1 id="detail-name">Loading...</h1>
+                <div class="detail-price" id="detail-price">$0.00</div>
+                
+                <p class="detail-description" id="detail-desc">
+                    </p>
+
+                <div class="detail-actions">
+                    <div class="quantity-selector">
+                        <button onclick="updateDetailQty(-1)">-</button>
+                        <span id="detail-qty">1</span>
+                        <button onclick="updateDetailQty(1)">+</button>
+                    </div>
+
+                    <button class="btn add-to-cart-btn" id="detail-add-btn">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>CART</h2>
+        <div class="listCart"></div>
+        <div class="total-bar">Total: $0.00</div>
+        <div class="buttons">
+            <div class="close">CLOSE</div>
+            <div class="checkout"><a href="checkout.html">CHECKOUT</a></div>
+        </div>
+    </div>
+    <div class="container"></div> <script src="app.js"></script> 
+</body>
+</html>
